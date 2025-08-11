@@ -164,7 +164,8 @@
             Controls.Add(panel1);
             Margin = new Padding(2);
             Name = "Form1";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Miku's Child Support Rehab Center";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
