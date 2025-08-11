@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace Software_Project_Gacha_Game.Games
 {
-    public partial class Blackjack: Form
+    public partial class BingoUI : Form
     {
-        public Blackjack()
+        public BingoUI()
         {
             InitializeComponent();
+        }
+
+        private void BingoUI_Deactivate(object sender, EventArgs e)
+        {
         }
     }
 }

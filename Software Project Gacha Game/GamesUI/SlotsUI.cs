@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Software_Project_Gacha_Game.Games
 {
-    public partial class Bingo: Form
+    public partial class SlotsUI: Form
     {
-        public Bingo()
+        public SlotsUI()
         {
             InitializeComponent();
         }

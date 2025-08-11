@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Software_Project_Gacha_Game.Games
 {
-    public partial class Poker: Form
+    public partial class HorseRacingUI: Form
     {
-        public Poker()
+        public HorseRacingUI()
         {
             InitializeComponent();
         }

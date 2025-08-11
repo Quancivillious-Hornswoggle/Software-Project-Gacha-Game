@@ -1,6 +1,6 @@
 ﻿namespace Software_Project_Gacha_Game.Games
 {
-    partial class Slots
+    partial class SlotsUI
     {
         /// <summary>
         /// Required designer variable.

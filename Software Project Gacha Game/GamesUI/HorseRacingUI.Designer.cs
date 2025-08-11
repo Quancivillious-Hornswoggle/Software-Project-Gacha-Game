@@ -1,6 +1,6 @@
 ﻿namespace Software_Project_Gacha_Game.Games
 {
-    partial class Bingo
+    partial class HorseRacingUI
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Bingo";
+            this.Text = "HorseRacing";
         }
 
         #endregion
