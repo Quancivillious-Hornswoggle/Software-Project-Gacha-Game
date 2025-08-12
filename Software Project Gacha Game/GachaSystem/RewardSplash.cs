@@ -24,7 +24,7 @@ namespace Software_Project_Gacha_Game.GachaSystem
             this.StartPosition = FormStartPosition.CenterScreen;
 
             // Set parent to display background
-            rewardLabel.Parent = pictureBox2;
+            rewardLabel.Parent = pictureBox1;
 
             // Set reward title
             rewardLabel.Text = "You Unlocked " + reward + "!";

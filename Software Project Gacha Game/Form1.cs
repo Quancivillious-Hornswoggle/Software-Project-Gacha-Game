@@ -100,5 +100,10 @@ namespace Software_Project_Gacha_Game
             poker.Show();
         }
         #endregion
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
