@@ -16,9 +16,5 @@ namespace Software_Project_Gacha_Game.Games
         {
             InitializeComponent();
         }
-
-        private void BingoUI_Deactivate(object sender, EventArgs e)
-        {
-        }
     }
 }

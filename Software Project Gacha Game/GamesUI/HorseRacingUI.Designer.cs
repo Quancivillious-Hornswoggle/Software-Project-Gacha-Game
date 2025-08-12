@@ -36,6 +36,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1119, 638);
             Name = "HorseRacingUI";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "HorseRacing";
             ResumeLayout(false);
         }

@@ -36,8 +36,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1119, 638);
             Name = "BingoUI";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Bingo";
-            Deactivate += BingoUI_Deactivate;
             ResumeLayout(false);
         }
 

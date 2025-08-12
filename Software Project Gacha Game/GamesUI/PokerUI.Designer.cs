@@ -36,6 +36,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1119, 638);
             Name = "PokerUI";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Poker";
             ResumeLayout(false);
         }

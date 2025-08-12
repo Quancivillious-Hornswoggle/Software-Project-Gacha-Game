@@ -68,7 +68,7 @@ namespace Software_Project_Gacha_Game
         private void slotsButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            SlotsUI slots = new SlotsUI();
+            SlotsUI slots = new SlotsUI(this);
             slots.Show();
         }
 
