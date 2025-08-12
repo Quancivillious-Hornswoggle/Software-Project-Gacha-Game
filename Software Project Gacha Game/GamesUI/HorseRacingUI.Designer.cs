@@ -38,6 +38,7 @@
             Name = "HorseRacingUI";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "HorseRacing";
+            FormClosing += HorseRacingUI_FormClosing;
             ResumeLayout(false);
         }
 

@@ -38,6 +38,7 @@
             Name = "PokerUI";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Poker";
+            FormClosing += PokerUI_FormClosing;
             ResumeLayout(false);
         }
 

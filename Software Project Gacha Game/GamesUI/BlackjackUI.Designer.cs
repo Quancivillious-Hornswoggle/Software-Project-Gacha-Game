@@ -38,6 +38,7 @@
             Name = "BlackjackUI";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Blackjack";
+            FormClosing += BlackjackUI_FormClosing;
             ResumeLayout(false);
         }
 

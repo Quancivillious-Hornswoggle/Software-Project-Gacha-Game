@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace Software_Project_Gacha_Game.Games
 {
-    public partial class HorseRacingUI: Form
+    public partial class HorseRacingUI : Form
     {
-        public HorseRacingUI()
+
+
+        // Data Variables
+        Form1 menuForm;
+
+        public HorseRacingUI(Form1 menuForm)
         {
             InitializeComponent();
+
+            this.menuForm = menuForm;
+        }
+
+        private void HorseRacingUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            menuForm.Visible = true;
         }
     }
 }

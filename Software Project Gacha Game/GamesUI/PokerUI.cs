@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace Software_Project_Gacha_Game.Games
 {
-    public partial class PokerUI: Form
+    public partial class PokerUI : Form
     {
-        public PokerUI()
+
+
+        // Data Variables
+        Form1 menuForm;
+
+        public PokerUI(Form1 menuForm)
         {
             InitializeComponent();
+
+            this.menuForm = menuForm;
+        }
+
+        private void PokerUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            menuForm.Visible = true;
         }
     }
 }

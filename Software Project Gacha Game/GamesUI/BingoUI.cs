@@ -12,9 +12,20 @@ namespace Software_Project_Gacha_Game.Games
 {
     public partial class BingoUI : Form
     {
-        public BingoUI()
+
+        // Data Variables
+        Form1 menuForm;
+
+        public BingoUI(Form1 menuForm)
         {
             InitializeComponent();
+
+            this.menuForm = menuForm;
+        }
+
+        private void BingoUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            menuForm.Visible = true;
         }
     }
 }

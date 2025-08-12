@@ -75,36 +75,29 @@ namespace Software_Project_Gacha_Game
         private void horseButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            HorseRacingUI horseRacing = new HorseRacingUI();
+            HorseRacingUI horseRacing = new HorseRacingUI(this);
             horseRacing.Show();
         }
 
         private void bingoButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            BingoUI bingo = new BingoUI();
+            BingoUI bingo = new BingoUI(this);
             bingo.Show();
         }
 
         private void blackjackButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            BlackjackUI blackjack = new BlackjackUI();
+            BlackjackUI blackjack = new BlackjackUI(this);
             blackjack.Show();
         }
 
         private void pokerButton_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            PokerUI poker = new PokerUI();
+            PokerUI poker = new PokerUI(this);
             poker.Show();
-        }
-        #endregion
-
-        #region Form Execptions
-        private void BingoUI_Deactivate(object sender, EventArgs e)
-        {
-
         }
         #endregion
     }
