@@ -15,15 +15,15 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
         private readonly string[] firstNames = { "Jovial", "Superstitional", "Downtown", "Door", "Garbage", "Gold", "Grass" };
         private readonly string[] lastNames = { "Merryment", "Realism", "Skybox", "Knob", "Bin", "Ship", "Wonder" };
 
-        // TODO - Change min and max when known
-        // How many seconds it takes to get a chance to move
-        private double speed;
-        private const double minSpeed = 0.25;
-        private const double maxSpeed = 0.75;
+        // How many ms it takes for a horse to get the chance to move
+        // 0.5 - 1.5 seconds
+        private int speed;
+        private const int minSpeed = 500;
+        private const int maxSpeed = 1500;
 
-        private double moveChance;
-        private const double minMoveChance = 0.25;
-        private const double maxMoveChance = 0.75;
+        private float moveChance;
+        private const float minMoveChance = 0.50f;
+        private const float maxMoveChance = 0.75f;
 
         // Purely UI related, can help user determine which horse to bet on
         private float odds;
@@ -56,24 +56,24 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
 
         // Should only be accessed by HorseRacing.cs
         // UI Should only show odds
-        internal double getSpeed()
+        internal int getSpeed()
         {
             return this.speed;
         }
 
         private void setSpeed()
         {
-            this.speed = (minSpeed + (rand.NextDouble() * (maxSpeed - minSpeed)));
+            this.speed = rand.Next(minSpeed, (maxSpeed + 1));
         }
 
-        internal double getMoveChance()
+        internal float getMoveChance()
         {
             return this.moveChance;
         }
 
         private void setMoveChance()
         {
-            this.moveChance = (minMoveChance + (rand.NextDouble() * (maxMoveChance - minMoveChance)));
+            this.moveChance = (float)(minMoveChance + (rand.NextDouble() * (maxMoveChance - minMoveChance)));
         }
 
         public float getOdds()
@@ -88,12 +88,15 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
             c1 = c1 * c2 * 100;
             c1 = Math.Floor(c1);
             this.odds = (float)c1 - 5;
-            // TODO - Generate odds based off the speed and move chance, then set it here
         }
         #endregion
 
-        // More Stuff Here?
-        // Boolean Method - see if they can move that "tick"?
-        // Who keeps track of timer? Horse or Controller?
+        public Boolean movementOpportunity()
+        {
+            return rand.NextDouble() <= getMoveChance() ? true : false;
+        }
+
+        // Advance horse's position here, then check if race is over?
+        // Controller's job or horse's job?
     }
 }

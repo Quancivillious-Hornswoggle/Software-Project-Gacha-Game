@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Software_Project_Gacha_Game.GameLibraries.HorseRacing;
+
 namespace Software_Project_Gacha_Game.Games
 {
     public partial class HorseRacingUI : Form
@@ -31,7 +33,13 @@ namespace Software_Project_Gacha_Game.Games
 
         private void HorseRacingUI_Load(object sender, EventArgs e)
         {
-            HorseRacing.setUpRace();
+            List<Horse> horses = HorseRacing.setUpRace();
+            // Show odds/pictures of each here
+            // This list has all horses, you can use it to show info to user :)
+
+            // Currently starting the race immediately, call this method after bet is placed
+            HorseRacing.startRace();
+
         }
     }
 }
