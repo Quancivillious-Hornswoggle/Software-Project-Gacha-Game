@@ -46,8 +46,9 @@
             panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(titleLabel);
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1119, 150);
+            panel1.Size = new Size(1598, 250);
             panel1.TabIndex = 0;
             // 
             // titleLabel
@@ -56,8 +57,9 @@
             titleLabel.Font = new Font("Segoe UI", 35F, FontStyle.Bold);
             titleLabel.ForeColor = Color.Black;
             titleLabel.Location = new Point(0, 0);
+            titleLabel.Margin = new Padding(4, 0, 4, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(1119, 150);
+            titleLabel.Size = new Size(1598, 250);
             titleLabel.TabIndex = 0;
             titleLabel.Text = "Miku's Child Support Rehab Center";
             titleLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -71,9 +73,10 @@
             panel2.Controls.Add(bingoButton);
             panel2.Controls.Add(horseButton);
             panel2.Controls.Add(slotsButton);
-            panel2.Location = new Point(0, 145);
+            panel2.Location = new Point(0, 196);
+            panel2.Margin = new Padding(4, 5, 4, 5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1119, 493);
+            panel2.Size = new Size(1598, 745);
             panel2.TabIndex = 1;
             // 
             // pokerButton
@@ -81,9 +84,10 @@
             pokerButton.BackColor = Color.Black;
             pokerButton.Font = new Font("Arial Black", 13F);
             pokerButton.ForeColor = Color.Green;
-            pokerButton.Location = new Point(892, 393);
+            pokerButton.Location = new Point(1270, 587);
+            pokerButton.Margin = new Padding(4, 5, 4, 5);
             pokerButton.Name = "pokerButton";
-            pokerButton.Size = new Size(214, 88);
+            pokerButton.Size = new Size(306, 147);
             pokerButton.TabIndex = 4;
             pokerButton.Text = "POKER";
             pokerButton.UseVisualStyleBackColor = false;
@@ -96,9 +100,10 @@
             blackjackButton.BackColor = Color.Black;
             blackjackButton.Font = new Font("Arial Black", 13F);
             blackjackButton.ForeColor = Color.Green;
-            blackjackButton.Location = new Point(672, 393);
+            blackjackButton.Location = new Point(956, 587);
+            blackjackButton.Margin = new Padding(4, 5, 4, 5);
             blackjackButton.Name = "blackjackButton";
-            blackjackButton.Size = new Size(214, 88);
+            blackjackButton.Size = new Size(306, 147);
             blackjackButton.TabIndex = 3;
             blackjackButton.Text = "BLACKJACK";
             blackjackButton.UseVisualStyleBackColor = false;
@@ -111,9 +116,10 @@
             bingoButton.BackColor = Color.Black;
             bingoButton.Font = new Font("Arial Black", 13F);
             bingoButton.ForeColor = Color.Green;
-            bingoButton.Location = new Point(452, 393);
+            bingoButton.Location = new Point(642, 587);
+            bingoButton.Margin = new Padding(4, 5, 4, 5);
             bingoButton.Name = "bingoButton";
-            bingoButton.Size = new Size(214, 88);
+            bingoButton.Size = new Size(306, 147);
             bingoButton.TabIndex = 2;
             bingoButton.Text = "BINGO";
             bingoButton.UseVisualStyleBackColor = false;
@@ -126,9 +132,10 @@
             horseButton.BackColor = Color.Black;
             horseButton.Font = new Font("Arial Black", 13F);
             horseButton.ForeColor = Color.Green;
-            horseButton.Location = new Point(232, 393);
+            horseButton.Location = new Point(327, 587);
+            horseButton.Margin = new Padding(4, 5, 4, 5);
             horseButton.Name = "horseButton";
-            horseButton.Size = new Size(214, 88);
+            horseButton.Size = new Size(306, 147);
             horseButton.TabIndex = 1;
             horseButton.Text = "HORSE RACING";
             horseButton.UseVisualStyleBackColor = false;
@@ -142,9 +149,10 @@
             slotsButton.BackColor = Color.Black;
             slotsButton.Font = new Font("Arial Black", 13F);
             slotsButton.ForeColor = Color.Green;
-            slotsButton.Location = new Point(12, 393);
+            slotsButton.Location = new Point(13, 587);
+            slotsButton.Margin = new Padding(4, 5, 4, 5);
             slotsButton.Name = "slotsButton";
-            slotsButton.Size = new Size(214, 88);
+            slotsButton.Size = new Size(306, 147);
             slotsButton.TabIndex = 0;
             slotsButton.Text = "SLOTS";
             slotsButton.UseVisualStyleBackColor = false;
@@ -154,18 +162,18 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImage = Properties.Resources.menubackground;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1119, 638);
+            ClientSize = new Size(1598, 944);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(2);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Miku's Child Support Rehab Center";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

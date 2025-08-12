@@ -28,26 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox2 = new PictureBox();
             button1 = new Button();
-            panel1 = new Panel();
             rewardLabel = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            panel1.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.BackgroundImage = Properties.Resources.rewardBG;
-            pictureBox2.Dock = DockStyle.Fill;
-            pictureBox2.Image = Properties.Resources.rewardBG;
-            pictureBox2.Location = new Point(0, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(400, 400);
-            pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox2.TabIndex = 3;
-            pictureBox2.TabStop = false;
             // 
             // button1
             // 
@@ -55,61 +40,61 @@
             button1.BackColor = Color.Black;
             button1.Font = new Font("Segoe UI", 25F);
             button1.ForeColor = Color.Green;
-            button1.Location = new Point(100, 250);
+            button1.Location = new Point(134, 398);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(200, 80);
+            button1.Size = new Size(315, 133);
             button1.TabIndex = 1;
             button1.Text = "Collect 😀";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // panel1
-            // 
-            panel1.BackgroundImageLayout = ImageLayout.Zoom;
-            panel1.Controls.Add(rewardLabel);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(pictureBox2);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(400, 400);
-            panel1.TabIndex = 0;
-            // 
             // rewardLabel
             // 
-            rewardLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rewardLabel.BackColor = Color.Transparent;
+            rewardLabel.CausesValidation = false;
             rewardLabel.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rewardLabel.ForeColor = Color.Cyan;
-            rewardLabel.Location = new Point(100, 103);
-            rewardLabel.Margin = new Padding(3, 0, 3, 15);
+            rewardLabel.Location = new Point(134, 245);
+            rewardLabel.Margin = new Padding(4, 0, 4, 25);
             rewardLabel.Name = "rewardLabel";
-            rewardLabel.Padding = new Padding(0, 25, 0, 0);
-            rewardLabel.Size = new Size(200, 147);
+            rewardLabel.Size = new Size(315, 101);
             rewardLabel.TabIndex = 4;
             rewardLabel.Text = "You unlocked REWARD!";
             rewardLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Image = Properties.Resources.rewardBG;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(600, 600);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            // 
             // RewardSplash
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(400, 400);
+            ClientSize = new Size(600, 600);
             ControlBox = false;
-            Controls.Add(panel1);
+            Controls.Add(button1);
+            Controls.Add(rewardLabel);
+            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "RewardSplash";
             Text = "RewardSplash";
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private PictureBox pictureBox2;
         private Button button1;
-        private Panel panel1;
         private Label rewardLabel;
+        private PictureBox pictureBox1;
     }
 }

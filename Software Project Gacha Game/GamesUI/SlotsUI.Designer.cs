@@ -42,9 +42,10 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.slotMachine;
-            pictureBox1.Location = new Point(61, 0);
+            pictureBox1.Location = new Point(87, 0);
+            pictureBox1.Margin = new Padding(4, 5, 4, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1058, 592);
+            pictureBox1.Size = new Size(1510, 901);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -52,12 +53,13 @@
             // slot1
             // 
             slot1.BackColor = Color.Black;
-            slot1.Font = new Font("Segoe UI", 75F);
+            slot1.Font = new Font("Segoe UI", 50F);
             slot1.ForeColor = Color.Cyan;
-            slot1.Location = new Point(322, 309);
+            slot1.Location = new Point(573, 461);
+            slot1.Margin = new Padding(4, 0, 4, 0);
             slot1.Name = "slot1";
-            slot1.Padding = new Padding(15, 0, 0, 15);
-            slot1.Size = new Size(140, 178);
+            slot1.Padding = new Padding(21, 0, 0, 25);
+            slot1.Size = new Size(143, 179);
             slot1.TabIndex = 1;
             slot1.Text = "💣";
             slot1.TextAlign = ContentAlignment.MiddleCenter;
@@ -65,12 +67,13 @@
             // slot2
             // 
             slot2.BackColor = Color.Black;
-            slot2.Font = new Font("Segoe UI", 75F);
+            slot2.Font = new Font("Segoe UI", 50F);
             slot2.ForeColor = Color.Cyan;
-            slot2.Location = new Point(487, 309);
+            slot2.Location = new Point(737, 461);
+            slot2.Margin = new Padding(4, 0, 4, 0);
             slot2.Name = "slot2";
-            slot2.Padding = new Padding(15, 0, 0, 15);
-            slot2.Size = new Size(140, 178);
+            slot2.Padding = new Padding(21, 0, 0, 25);
+            slot2.Size = new Size(143, 179);
             slot2.TabIndex = 2;
             slot2.Text = "💣";
             slot2.TextAlign = ContentAlignment.MiddleCenter;
@@ -78,12 +81,13 @@
             // slot3
             // 
             slot3.BackColor = Color.Black;
-            slot3.Font = new Font("Segoe UI", 75F);
+            slot3.Font = new Font("Segoe UI", 50F);
             slot3.ForeColor = Color.Cyan;
-            slot3.Location = new Point(652, 309);
+            slot3.Location = new Point(902, 461);
+            slot3.Margin = new Padding(4, 0, 4, 0);
             slot3.Name = "slot3";
-            slot3.Padding = new Padding(15, 0, 0, 15);
-            slot3.Size = new Size(140, 178);
+            slot3.Padding = new Padding(21, 0, 0, 25);
+            slot3.Size = new Size(143, 179);
             slot3.TabIndex = 3;
             slot3.Text = "💣";
             slot3.TextAlign = ContentAlignment.MiddleCenter;
@@ -97,7 +101,8 @@
             spinButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
             spinButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
             spinButton.FlatStyle = FlatStyle.Flat;
-            spinButton.Location = new Point(840, 117);
+            spinButton.Location = new Point(1093, 271);
+            spinButton.Margin = new Padding(4, 5, 4, 5);
             spinButton.Name = "spinButton";
             spinButton.Size = new Size(55, 55);
             spinButton.TabIndex = 4;
@@ -111,9 +116,10 @@
             returnButton.FlatAppearance.BorderSize = 3;
             returnButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             returnButton.ForeColor = Color.FromArgb(192, 0, 0);
-            returnButton.Location = new Point(12, 572);
+            returnButton.Location = new Point(13, 840);
+            returnButton.Margin = new Padding(4, 5, 4, 5);
             returnButton.Name = "returnButton";
-            returnButton.Size = new Size(171, 54);
+            returnButton.Size = new Size(244, 90);
             returnButton.TabIndex = 5;
             returnButton.Text = "Return To Menu";
             returnButton.UseVisualStyleBackColor = false;
@@ -121,17 +127,18 @@
             // 
             // SlotsUI
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.slots;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1119, 638);
+            ClientSize = new Size(1598, 944);
             Controls.Add(returnButton);
             Controls.Add(spinButton);
             Controls.Add(slot3);
             Controls.Add(slot2);
             Controls.Add(slot1);
             Controls.Add(pictureBox1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "SlotsUI";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Slots";

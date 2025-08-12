@@ -32,9 +32,10 @@
             // 
             // BingoUI
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1119, 638);
+            ClientSize = new Size(1598, 944);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "BingoUI";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bingo";
