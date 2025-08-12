@@ -28,5 +28,10 @@ namespace Software_Project_Gacha_Game.Games
         {
             menuForm.Visible = true;
         }
+
+        private void HorseRacingUI_Load(object sender, EventArgs e)
+        {
+            HorseRacing.setUpRace();
+        }
     }
 }

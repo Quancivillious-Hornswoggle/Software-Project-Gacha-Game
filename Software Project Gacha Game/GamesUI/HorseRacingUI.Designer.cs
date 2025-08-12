@@ -32,13 +32,15 @@
             // 
             // HorseRacingUI
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1119, 638);
+            ClientSize = new Size(1599, 1063);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "HorseRacingUI";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "HorseRacing";
             FormClosing += HorseRacingUI_FormClosing;
+            Load += HorseRacingUI_Load;
             ResumeLayout(false);
         }
 

@@ -16,6 +16,7 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
         private readonly string[] lastNames = { "Merryment", "Realism", "Skybox", "Knob", "Bin", "Ship", "Wonder" };
 
         // TODO - Change min and max when known
+        // How many seconds it takes to get a chance to move
         private double speed;
         private const double minSpeed = 0.25;
         private const double maxSpeed = 0.75;
@@ -82,6 +83,11 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
 
         private void setOdds()
         {
+            double c1 = getMoveChance() / maxMoveChance;
+            double c2 = getSpeed() / maxSpeed;
+            c1 = c1 * c2 * 100;
+            c1 = Math.Floor(c1);
+            this.odds = (float)c1 - 5;
             // TODO - Generate odds based off the speed and move chance, then set it here
         }
         #endregion
