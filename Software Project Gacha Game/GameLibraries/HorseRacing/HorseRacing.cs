@@ -38,6 +38,7 @@ using System.Threading.Tasks;
                         if (raceOver)
                         {
                             Debug.WriteLine(h.getName() + " has won!");
+                            timer.Stop();
                             break;
                             // TODO - Update UI for the winner
                         }

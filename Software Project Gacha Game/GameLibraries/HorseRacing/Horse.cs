@@ -18,8 +18,8 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
         // How many ms it takes for a horse to get the chance to move
         // 1.0 - 1.5 seconds
         private int speed;
-        private const int minSpeed = 1000;
-        private const int maxSpeed = 1500;
+        private const int minSpeed = 2000;
+        private const int maxSpeed = 3500;
 
         private float moveChance;
         private const float minMoveChance = 0.25f;
@@ -109,7 +109,7 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
 
         public Boolean movementOpportunity()
         {
-            return rand.NextDouble() <= getMoveChance() ? true : false;
+            return (rand.NextDouble() <= getMoveChance());
         }
 
         public Boolean hasWon()
@@ -117,8 +117,5 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
             setProgress(getProgress() + 1);
             return (getProgress() >= raceLength);
         }
-
-        // Advance horse's position here, then check if race is over?
-        // Controller's job or horse's job?
     }
 }
