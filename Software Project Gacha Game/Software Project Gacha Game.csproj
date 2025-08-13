@@ -10,6 +10,62 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Resource Include="Cards\10C.png" />
+    <Resource Include="Cards\10D.png" />
+    <Resource Include="Cards\10H.png" />
+    <Resource Include="Cards\10S.png" />
+    <Resource Include="Cards\2C.png" />
+    <Resource Include="Cards\2D.png" />
+    <Resource Include="Cards\2H.png" />
+    <Resource Include="Cards\2S.png" />
+    <Resource Include="Cards\3C.png" />
+    <Resource Include="Cards\3D.png" />
+    <Resource Include="Cards\3H.png" />
+    <Resource Include="Cards\3S.png" />
+    <Resource Include="Cards\4C.png" />
+    <Resource Include="Cards\4D.png" />
+    <Resource Include="Cards\4H.png" />
+    <Resource Include="Cards\4S.png" />
+    <Resource Include="Cards\5C.png" />
+    <Resource Include="Cards\5D.png" />
+    <Resource Include="Cards\5H.png" />
+    <Resource Include="Cards\5S.png" />
+    <Resource Include="Cards\6C.png" />
+    <Resource Include="Cards\6D.png" />
+    <Resource Include="Cards\6H.png" />
+    <Resource Include="Cards\6S.png" />
+    <Resource Include="Cards\7C.png" />
+    <Resource Include="Cards\7D.png" />
+    <Resource Include="Cards\7H.png" />
+    <Resource Include="Cards\7S.png" />
+    <Resource Include="Cards\8C.png" />
+    <Resource Include="Cards\8D.png" />
+    <Resource Include="Cards\8H.png" />
+    <Resource Include="Cards\8S.png" />
+    <Resource Include="Cards\9C.png" />
+    <Resource Include="Cards\9D.png" />
+    <Resource Include="Cards\9H.png" />
+    <Resource Include="Cards\9S.png" />
+    <Resource Include="Cards\AC.png" />
+    <Resource Include="Cards\AD.png" />
+    <Resource Include="Cards\AH.png" />
+    <Resource Include="Cards\AS.png" />
+    <Resource Include="Cards\back.png" />
+    <Resource Include="Cards\JC.png" />
+    <Resource Include="Cards\JD.png" />
+    <Resource Include="Cards\JH.png" />
+    <Resource Include="Cards\JS.png" />
+    <Resource Include="Cards\KC.png" />
+    <Resource Include="Cards\KD.png" />
+    <Resource Include="Cards\KH.png" />
+    <Resource Include="Cards\KS.png" />
+    <Resource Include="Cards\QC.png" />
+    <Resource Include="Cards\QD.png" />
+    <Resource Include="Cards\QH.png" />
+    <Resource Include="Cards\QS.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

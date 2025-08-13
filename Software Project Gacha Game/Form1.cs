@@ -99,11 +99,7 @@ namespace Software_Project_Gacha_Game
             PokerUI poker = new PokerUI(this);
             poker.Show();
         }
-        #endregion
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
+        #endregion
     }
 }
