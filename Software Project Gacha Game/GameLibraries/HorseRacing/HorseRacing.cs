@@ -13,7 +13,7 @@ using System.Threading.Tasks;
         public static List<Horse> setUpRace()
         {
             horses.Clear();
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 5; i++)
             {
                 horses.Add(new Horse());
             }
@@ -32,11 +32,16 @@ using System.Threading.Tasks;
                     if ((timer.ElapsedMilliseconds % h.getSpeed() == 0) && h.movementOpportunity())
                     {
                         // Horse successfully moved
-                        // Update UI here/check if race is over or something?
-                        // Code here right now is temporary debug code
+                        // TODO - Somehow show movement on UI
                         Debug.WriteLine(h.getName() + " Successfully moved!");
-                        raceOver = true;
-                }
+                        raceOver = h.hasWon();
+                        if (raceOver)
+                        {
+                            Debug.WriteLine(h.getName() + " has won!");
+                            break;
+                            // TODO - Update UI for the winner
+                        }
+                    }
                 }
             }
         }

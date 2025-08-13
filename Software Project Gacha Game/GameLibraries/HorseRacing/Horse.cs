@@ -16,17 +16,22 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
         private readonly string[] lastNames = { "Merryment", "Realism", "Skybox", "Knob", "Bin", "Ship", "Wonder" };
 
         // How many ms it takes for a horse to get the chance to move
-        // 0.5 - 1.5 seconds
+        // 1.0 - 1.5 seconds
         private int speed;
-        private const int minSpeed = 500;
+        private const int minSpeed = 1000;
         private const int maxSpeed = 1500;
 
         private float moveChance;
-        private const float minMoveChance = 0.50f;
-        private const float maxMoveChance = 0.75f;
+        private const float minMoveChance = 0.25f;
+        private const float maxMoveChance = 0.50f;
 
         // Purely UI related, can help user determine which horse to bet on
         private float odds;
+
+        // In order to determine the winner/how far each horse has gone
+        private int progress;
+        private int raceLength = 25;
+
 
         /***
          * Instantiates a new Horse
@@ -38,6 +43,7 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
             setSpeed();
             setMoveChance();
             setOdds();
+            setProgress(0);
         }
 
         #region Getters/Setters
@@ -89,11 +95,27 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
             c1 = Math.Floor(c1);
             this.odds = (float)c1 - 5;
         }
+
+        private int getProgress()
+        {
+            return this.progress;
+        }
+
+        private void setProgress(int progress)
+        {
+            this.progress = progress;
+        }
         #endregion
 
         public Boolean movementOpportunity()
         {
             return rand.NextDouble() <= getMoveChance() ? true : false;
+        }
+
+        public Boolean hasWon()
+        {
+            setProgress(getProgress() + 1);
+            return (getProgress() >= raceLength);
         }
 
         // Advance horse's position here, then check if race is over?
