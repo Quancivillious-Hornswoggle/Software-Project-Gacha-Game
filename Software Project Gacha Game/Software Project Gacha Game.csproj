@@ -10,6 +10,62 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Resource Include="GameResources\Cards\10C.png" />
+    <Resource Include="GameResources\Cards\10D.png" />
+    <Resource Include="GameResources\Cards\10H.png" />
+    <Resource Include="GameResources\Cards\10S.png" />
+    <Resource Include="GameResources\Cards\2C.png" />
+    <Resource Include="GameResources\Cards\2D.png" />
+    <Resource Include="GameResources\Cards\2H.png" />
+    <Resource Include="GameResources\Cards\2S.png" />
+    <Resource Include="GameResources\Cards\3C.png" />
+    <Resource Include="GameResources\Cards\3D.png" />
+    <Resource Include="GameResources\Cards\3H.png" />
+    <Resource Include="GameResources\Cards\3S.png" />
+    <Resource Include="GameResources\Cards\4C.png" />
+    <Resource Include="GameResources\Cards\4D.png" />
+    <Resource Include="GameResources\Cards\4H.png" />
+    <Resource Include="GameResources\Cards\4S.png" />
+    <Resource Include="GameResources\Cards\5C.png" />
+    <Resource Include="GameResources\Cards\5D.png" />
+    <Resource Include="GameResources\Cards\5H.png" />
+    <Resource Include="GameResources\Cards\5S.png" />
+    <Resource Include="GameResources\Cards\6C.png" />
+    <Resource Include="GameResources\Cards\6D.png" />
+    <Resource Include="GameResources\Cards\6H.png" />
+    <Resource Include="GameResources\Cards\6S.png" />
+    <Resource Include="GameResources\Cards\7C.png" />
+    <Resource Include="GameResources\Cards\7D.png" />
+    <Resource Include="GameResources\Cards\7H.png" />
+    <Resource Include="GameResources\Cards\7S.png" />
+    <Resource Include="GameResources\Cards\8C.png" />
+    <Resource Include="GameResources\Cards\8D.png" />
+    <Resource Include="GameResources\Cards\8H.png" />
+    <Resource Include="GameResources\Cards\8S.png" />
+    <Resource Include="GameResources\Cards\9C.png" />
+    <Resource Include="GameResources\Cards\9D.png" />
+    <Resource Include="GameResources\Cards\9H.png" />
+    <Resource Include="GameResources\Cards\9S.png" />
+    <Resource Include="GameResources\Cards\AC.png" />
+    <Resource Include="GameResources\Cards\AD.png" />
+    <Resource Include="GameResources\Cards\AH.png" />
+    <Resource Include="GameResources\Cards\AS.png" />
+    <Resource Include="GameResources\Cards\back.png" />
+    <Resource Include="GameResources\Cards\JC.png" />
+    <Resource Include="GameResources\Cards\JD.png" />
+    <Resource Include="GameResources\Cards\JH.png" />
+    <Resource Include="GameResources\Cards\JS.png" />
+    <Resource Include="GameResources\Cards\KC.png" />
+    <Resource Include="GameResources\Cards\KD.png" />
+    <Resource Include="GameResources\Cards\KH.png" />
+    <Resource Include="GameResources\Cards\KS.png" />
+    <Resource Include="GameResources\Cards\QC.png" />
+    <Resource Include="GameResources\Cards\QD.png" />
+    <Resource Include="GameResources\Cards\QH.png" />
+    <Resource Include="GameResources\Cards\QS.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -22,6 +78,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="GameResources\Horses\" />
   </ItemGroup>
 
 </Project>
