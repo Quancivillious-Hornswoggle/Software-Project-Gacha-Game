@@ -19,7 +19,7 @@ public class Deck
         {
             foreach (var suit in suits)
             {
-                cards.Add(new Card(suit, i, $"{i}_{suit}.png"));
+                cards.Add(new Card(suit, i, $"{i}{suit}.png"));
             }
         }
     }
