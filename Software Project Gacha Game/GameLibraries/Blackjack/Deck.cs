@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,6 @@ namespace Software_Project_Gacha_Game.GameLibraries.Blackjack
             string[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
 
             int index = 0;
-
             foreach (string suit in suits)
             {
                 foreach (string rank in ranks)
@@ -27,11 +26,31 @@ namespace Software_Project_Gacha_Game.GameLibraries.Blackjack
                 }
             }
             currentCardIndex = 0;
-
         }
-        //TODO: Implement shuffle method
 
+        public void Shuffle()
+        {
+            Random rand = new Random();
+            for (int i = deck.Length - 1; i > 0; i--)
+            { //swaps decks i and j
+                int j = rand.Next(i + 1);
+                Card temp = deck[i];
+                deck[i] = deck[j];
+                deck[j] = temp;
+            }
+            currentCardIndex = 0;
+        }
 
-        //TODO: Implement a method to deal a card
+        public Card DealCard()
+        {
+            if (currentCardIndex < deck.Length)
+            {
+                return deck[currentCardIndex++];
+            }
+            else
+            { //this aint ever gonna happen
+                throw new InvalidOperationException("No more cards to deal.");
+            }
+        }
     }
 }
