@@ -1,3 +1,5 @@
+using Software_Project_Gacha_Game.GameLibraries.CardLibrary;
+
 namespace Software_Project_Gacha_Game.GameLibraries.Blackjack
 {
 internal class Hand
@@ -30,7 +32,7 @@ internal class Hand
 
         for (int i = 0; i < cardCount; i++)
         {
-            string rank = hand[i].GetRank();
+            string rank = hand[i].getValue();
             if (rank == "A")
             {  //count as 11 initially 
                 totalValue += 11;

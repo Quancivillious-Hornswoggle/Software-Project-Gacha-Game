@@ -170,6 +170,7 @@
             ClientSize = new Size(1598, 944);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Miku's Child Support Rehab Center";

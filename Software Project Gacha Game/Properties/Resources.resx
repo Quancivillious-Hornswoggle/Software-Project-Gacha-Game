@@ -124,8 +124,14 @@
   <data name="hit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MikuHorse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MikuHorse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="redCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\redCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="blackjackBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blackjackBg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,10 +145,7 @@
   <data name="slotMachine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\slotMachine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="stand" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MikuHorse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MikuHorse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardGameBg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cardGameBg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

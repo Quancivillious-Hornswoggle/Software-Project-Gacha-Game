@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Software_Project_Gacha_Game.GameLibraries.Blackjack
+namespace Software_Project_Gacha_Game.GameLibraries.CardLibrary
 {
     internal class Deck
     {
@@ -50,6 +50,20 @@ namespace Software_Project_Gacha_Game.GameLibraries.Blackjack
             else
             { //this aint ever gonna happen
                 throw new InvalidOperationException("No more cards to deal.");
+            }
+        }
+
+        public bool discardCard(Card card)
+        {
+            try
+            {
+                List<Card> cards = deck.ToList();
+                cards.Remove(card);
+                deck = cards.ToArray();
+                return true;
+            } catch
+            {
+                return false;
             }
         }
     }

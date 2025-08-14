@@ -22,6 +22,10 @@ namespace Software_Project_Gacha_Game.Games
             InitializeComponent();
 
             this.menuForm = menuForm;
+
+            // Hide hand
+            hand1.Image = null; hand1.BackColor = Color.Transparent;
+            hand2.Image = null; hand2.BackColor = Color.Transparent;
         }
 
         private void PokerUI_FormClosing(object sender, FormClosingEventArgs e)

@@ -138,6 +138,7 @@
             Controls.Add(slot2);
             Controls.Add(slot1);
             Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Margin = new Padding(4, 5, 4, 5);
             Name = "SlotsUI";
             StartPosition = FormStartPosition.CenterScreen;
