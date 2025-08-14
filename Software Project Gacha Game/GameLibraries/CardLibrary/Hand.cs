@@ -1,6 +1,4 @@
-using Software_Project_Gacha_Game.GameLibraries.CardLibrary;
-
-namespace Software_Project_Gacha_Game.GameLibraries.Blackjack
+namespace Software_Project_Gacha_Game.GameLibraries.CardLibrary
 {
 internal class Hand
 {
@@ -23,6 +21,13 @@ internal class Hand
         {
             throw new InvalidOperationException("Hand is full.");
         }
+    }
+
+    public void RemoveCard(Card card)
+    {
+        List<Card> cards = new List<Card>();
+        cards.Remove(card);
+        cardCount -= cards.Count;
     }
 
     public int GetHandValue()
@@ -55,6 +60,11 @@ internal class Hand
         }
 
         return totalValue;
+    }
+
+    public Card[] GetCards()
+    {
+        return hand;
     }
 
     public void ClearHand()
