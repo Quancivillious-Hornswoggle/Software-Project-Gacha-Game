@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,13 +34,16 @@ namespace Software_Project_Gacha_Game.Games
 
         private void HorseRacingUI_Load(object sender, EventArgs e)
         {
+            // This list has all horses, you can use it to show info to user :)
             List<Horse> horses = HorseRacing.setUpRace();
             // Show odds/pictures of each here
-            // This list has all horses, you can use it to show info to user :)
+
+            // Get user input and make a bet here, takes horse name and bet amount
+            HorseRacing.makeBet("Jovial Merryment", 50.0f);
 
             // Currently starting the race immediately, call this method after bet is placed
-            HorseRacing.startRace();
-
+            float moneyWon = HorseRacing.startRace();
+            Debug.WriteLine(moneyWon);
         }
     }
 }

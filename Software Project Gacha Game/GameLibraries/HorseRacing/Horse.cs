@@ -90,10 +90,11 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
         private void setOdds()
         {
             double c1 = getMoveChance() / maxMoveChance;
-            double c2 = getSpeed() / maxSpeed;
+            double c2 = (double)getSpeed() / maxSpeed;
             c1 = c1 * c2 * 100;
-            c1 = Math.Floor(c1);
-            this.odds = (float)c1 - 5;
+            c1 = Math.Floor(c1) - 5;
+            if (c1 <= 1) { c1 = 1; }
+            this.odds = (float)c1;
         }
 
         private int getProgress()

@@ -4,11 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
     class HorseRacing
     {
+    public static String betOnHorse = "";
+    public static float betAmount;
+
     public static List<Horse> horses = new List<Horse>();
         public static List<Horse> setUpRace()
         {
@@ -20,8 +24,15 @@ using System.Threading.Tasks;
             return horses;
         }
 
-        public static void startRace()
+        public static void makeBet(String horseName, float wager)
         {
+            betOnHorse = horseName;
+            betAmount = wager;
+        }
+
+        public static float startRace()
+        {
+            Horse winner = new Horse();
             Stopwatch timer = new Stopwatch();
             bool raceOver = false;
             timer.Start();
@@ -37,6 +48,7 @@ using System.Threading.Tasks;
                         raceOver = h.hasWon();
                         if (raceOver)
                         {
+                            winner = h;
                             Debug.WriteLine(h.getName() + " has won!");
                             timer.Stop();
                             break;
@@ -45,6 +57,10 @@ using System.Threading.Tasks;
                     }
                 }
             }
+            Debug.WriteLine(winner.getOdds());
+            if (winner.getName().Equals(betOnHorse)) { return (float)((1 - (winner.getOdds() / 100)) * betAmount); }
+            return 0f;
+            // Do they get nothing if they don't win? or less based on placement?
         }
 
         /***
