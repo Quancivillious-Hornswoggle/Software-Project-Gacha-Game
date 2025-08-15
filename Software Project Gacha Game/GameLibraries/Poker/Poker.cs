@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameLibraries.Poker;
+using Software_Project_Gacha_Game.GameLibraries.CardLibrary;
 
 class Poker
 {
@@ -45,14 +46,14 @@ class Poker
 
         for (int i = 0; i < 2; i++) //deal the cards like a dealer back and forth
         {
-            playerHand.AddCard(deck.DrawCard());
-            opponentHand.AddCard(deck.DrawCard());
+            playerHand.AddCard(deck.DealCard());
+            opponentHand.AddCard(deck.DealCard());
         }
 
         //Get the flop (First three community cards in the river)
-        communityCards.AddCard(deck.DrawCard());
-        communityCards.AddCard(deck.DrawCard());
-        communityCards.AddCard(deck.DrawCard()); //TO DO: display the flop
+    communityCards.AddCard(deck.DealCard());
+    communityCards.AddCard(deck.DealCard());
+    communityCards.AddCard(deck.DealCard()); //TO DO: display the flop
 
         //Promt the user with a choice to raise, stand, or fold. Player will always go first.
 
@@ -65,7 +66,7 @@ class Poker
 
         // Determine winner
         SolveWinner solver = new SolveWinner();
-        Console.WriteLine(solver.DetermineWinner(playerHand, opponentHand, communityCards)); //display winner
+        Console.WriteLine(SolveWinner.DetermineWinner(playerHand, opponentHand, communityCards)); //display winner
     }
 
     public int BetCallFold(int playerPoints, int pot)
