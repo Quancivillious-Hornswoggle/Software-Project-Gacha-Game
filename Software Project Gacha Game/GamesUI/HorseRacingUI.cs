@@ -43,7 +43,7 @@ namespace Software_Project_Gacha_Game.Games
 
             // Currently starting the race immediately, call this method after bet is placed
             float moneyWon = HorseRacing.startRace();
-            Debug.WriteLine(moneyWon);
+            Debug.WriteLine("Money Won: " + moneyWon);
         }
     }
 }
