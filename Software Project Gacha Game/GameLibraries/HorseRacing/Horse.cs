@@ -12,8 +12,8 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
     {
         private Random rand = new Random();
         private string name;
-        private readonly string[] firstNames = { "Jovial", "Superstitional", "Downtown", "Door", "Garbage", "Gold", "Grass" };
-        private readonly string[] lastNames = { "Merryment", "Realism", "Skybox", "Knob", "Bin", "Ship", "Wonder" };
+        private readonly string[] firstNames = { "Jovial", "Superstitional", "Downtown", "Door", "Garbage", "Gold", "Grass", "Hopeless" };
+        private readonly string[] lastNames = { "Merryment", "Realism", "Skybox", "Knob", "Bin", "Ship", "Wonder", "Endeavor" };
 
         // How many ms it takes for a horse to get the chance to move
         // 1.0 - 1.5 seconds
@@ -30,7 +30,7 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
 
         // In order to determine the winner/how far each horse has gone
         private int progress;
-        private int raceLength = 25;
+        private int raceLength = 15;
 
 
         /***

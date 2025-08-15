@@ -38,43 +38,63 @@ class Blackjack
         Console.WriteLine("Game started. Player and dealer have been dealt cards.");
     }
 
-    public void PlayerHits()
+    public bool PlayerHits()
     {
-        if (!gameActive) return;
+        // Return if busted or not 
+        if (gameActive)
+        {
+            playerHand.AddCard(deck.DealCard());
+
+            if (playerHand.GetHandValue() > 21)
+            {
+                Console.WriteLine("Player busts! Dealer wins!");
+                gameActive = false;
+                return true;
+            }
+        }
+        return false;
+
+        /*if (!gameActive) return;
         playerHand.AddCard(deck.DealCard());
 
         if (playerHand.GetHandValue() > 21)
         {
             Console.WriteLine("Player busts! Dealer wins!");
             gameActive = false;
-        }
+        }*/
     }
 
-    public void PlayerStands()
+    public int PlayerStands()
     {
-        if (!gameActive) return;
+        if (gameActive) {
+            while (dealerHand.GetHandValue() < 17)
+            {
+                dealerHand.AddCard(deck.DealCard());
+            }
 
-        while (dealerHand.GetHandValue() < 17)
-        {
-            dealerHand.AddCard(deck.DealCard());
-        }
+            int playerValue = playerHand.GetHandValue();
+            int dealerValue = dealerHand.GetHandValue();
 
-        int playerValue = playerHand.GetHandValue();
-        int dealerValue = dealerHand.GetHandValue();
-
-        if (dealerValue > 21 || playerValue > dealerValue)
-        {
-            Console.WriteLine("Player wins!");
+            if (dealerValue > 21 || playerValue > dealerValue)
+            {
+                Console.WriteLine("Player wins!");
+                gameActive = false;
+                return 0;
+            }
+            else if (playerValue < dealerValue)
+            {
+                Console.WriteLine("Dealer wins!");
+                gameActive = false;
+                return 1;
+            }
+            else
+            {
+                Console.WriteLine("It's a tie!");
+                gameActive = false;
+                return 2;
+            }
         }
-        else if (playerValue < dealerValue)
-        {
-            Console.WriteLine("Dealer wins!");
-        }
-        else
-        {
-            Console.WriteLine("It's a tie!");
-        }
-        gameActive = false;
+        return -1;
     }
 
     public Hand GetPlayerHand() => playerHand;

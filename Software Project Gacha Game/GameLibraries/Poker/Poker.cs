@@ -46,14 +46,14 @@ class Poker
 
         for (int i = 0; i < 2; i++) //deal the cards like a dealer back and forth
         {
-            playerHand.AddCard(deck.DealCard());
-            opponentHand.AddCard(deck.DealCard());
+            playerHand.AddCard(deck.DrawCard());
+            opponentHand.AddCard(deck.DrawCard());
         }
 
         //Get the flop (First three community cards in the river)
-    communityCards.AddCard(deck.DealCard());
-    communityCards.AddCard(deck.DealCard());
-    communityCards.AddCard(deck.DealCard()); //TO DO: display the flop
+        communityCards.AddCard(deck.DrawCard());
+        communityCards.AddCard(deck.DrawCard());
+        communityCards.AddCard(deck.DrawCard()); //TO DO: display the flop
 
         //Promt the user with a choice to raise, stand, or fold. Player will always go first.
 
@@ -66,7 +66,7 @@ class Poker
 
         // Determine winner
         SolveWinner solver = new SolveWinner();
-        Console.WriteLine(SolveWinner.DetermineWinner(playerHand, opponentHand, communityCards)); //display winner
+        Console.WriteLine(solver.DetermineWinner(playerHand, opponentHand, communityCards)); //display winner
     }
 
     public int BetCallFold(int playerPoints, int pot)
