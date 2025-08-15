@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
     class HorseRacing
     {
@@ -30,32 +31,40 @@ using System.Threading.Tasks;
             betAmount = wager;
         }
 
-        public static float startRace()
+        public static float startRace(PictureBox[] HorseIcons, Label winnerLabel)
         {
             Horse winner = new Horse();
             Stopwatch timer = new Stopwatch();
             bool raceOver = false;
             timer.Start();
+
+            int index = 0;
             while (!raceOver)
             {
                 foreach (Horse h in horses)
                 {
                     if ((timer.ElapsedMilliseconds % h.getSpeed() == 0) && h.movementOpportunity())
                     {
-                        // Horse successfully moved
-                        // TODO - Somehow show movement on UI
-                        Debug.WriteLine(h.getName() + " Successfully moved!");
-                        raceOver = h.hasWon();
-                        if (raceOver)
-                        {
+                    // Horse successfully moved
+                    // TODO - Somehow show movement on UI
+                    HorseIcons[index].Location = new Point(HorseIcons[index].Location.X + 75, HorseIcons[index].Location.Y);
+                    HorseIcons[index].Refresh();
+
+                    Debug.WriteLine(h.getName() + " Successfully moved!");
+                    raceOver = h.hasWon();
+                    if (raceOver)
+                    {
                             winner = h;
                             Debug.WriteLine(h.getName() + " has won!");
                             timer.Stop();
-                            break;
-                            // TODO - Update UI for the winner
-                        }
+                            // Update corner winner label
+                            winnerLabel.Text = (h.getName() + " has won!");
+                        break;
                     }
+                    }
+                    index++;
                 }
+                index = 0;
             }
             Debug.WriteLine(winner.getOdds());
             if (winner.getName().Equals(betOnHorse)) { return (float)((1 - (winner.getOdds() / 100)) * betAmount); }
