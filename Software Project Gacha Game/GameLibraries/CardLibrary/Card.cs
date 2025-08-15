@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Software_Project_Gacha_Game.GameLibraries.Blackjack
+namespace Software_Project_Gacha_Game.GameLibraries.CardLibrary
 {
     internal class Card
     {
@@ -17,7 +17,7 @@ namespace Software_Project_Gacha_Game.GameLibraries.Blackjack
             Rank = rank;
         }
 
-        public string getRank()
+        public string getValue()
         {
             return Rank;
         }

@@ -38,10 +38,10 @@
             dealerLabel = new Label();
             titleLabel = new Label();
             cardSlot6 = new PictureBox();
-            button1 = new Button();
-            button2 = new Button();
+            hitButton = new Button();
+            standButton = new Button();
             panel1 = new Panel();
-            panel3 = new Panel();
+            dealerCardPanel = new Panel();
             dealerSlot6 = new PictureBox();
             dealerSlot5 = new PictureBox();
             dealerSlot4 = new PictureBox();
@@ -49,8 +49,10 @@
             dealerSlot2 = new PictureBox();
             dealerSlot1 = new PictureBox();
             popupPanel = new Panel();
-            playAgainButton = new Button();
             popupMessage = new Label();
+            playAgainButton = new Button();
+            returnButton = new Button();
+            totalLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)cardSlot1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cardSlot2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cardSlot3).BeginInit();
@@ -59,7 +61,7 @@
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cardSlot6).BeginInit();
             panel1.SuspendLayout();
-            panel3.SuspendLayout();
+            dealerCardPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dealerSlot6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dealerSlot5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dealerSlot4).BeginInit();
@@ -150,12 +152,12 @@
             titleLabel.BackColor = Color.Transparent;
             titleLabel.Dock = DockStyle.Fill;
             titleLabel.Font = new Font("Segoe UI", 25F);
-            titleLabel.ForeColor = Color.Cyan;
+            titleLabel.ForeColor = Color.Black;
             titleLabel.Location = new Point(0, 0);
             titleLabel.Name = "titleLabel";
             titleLabel.Size = new Size(1418, 150);
             titleLabel.TabIndex = 0;
-            titleLabel.Text = "Backjack";
+            titleLabel.Text = "Blackjack";
             titleLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // cardSlot6
@@ -169,55 +171,57 @@
             cardSlot6.TabIndex = 7;
             cardSlot6.TabStop = false;
             // 
-            // button1
+            // hitButton
             // 
-            button1.BackColor = Color.Transparent;
-            button1.BackgroundImage = Properties.Resources.hit;
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(0, 156);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 150);
-            button1.TabIndex = 8;
-            button1.UseVisualStyleBackColor = false;
+            hitButton.BackColor = Color.Transparent;
+            hitButton.BackgroundImage = Properties.Resources.hit;
+            hitButton.BackgroundImageLayout = ImageLayout.Zoom;
+            hitButton.FlatAppearance.BorderSize = 0;
+            hitButton.FlatStyle = FlatStyle.Flat;
+            hitButton.Location = new Point(0, 156);
+            hitButton.Name = "hitButton";
+            hitButton.Size = new Size(150, 150);
+            hitButton.TabIndex = 8;
+            hitButton.UseVisualStyleBackColor = false;
+            hitButton.Click += hitButton_Click;
             // 
-            // button2
+            // standButton
             // 
-            button2.BackColor = Color.Transparent;
-            button2.BackgroundImage = Properties.Resources.stand;
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(0, 0);
-            button2.Name = "button2";
-            button2.Size = new Size(150, 150);
-            button2.TabIndex = 9;
-            button2.UseVisualStyleBackColor = false;
+            standButton.BackColor = Color.Transparent;
+            standButton.BackgroundImage = Properties.Resources.stand;
+            standButton.BackgroundImageLayout = ImageLayout.Zoom;
+            standButton.FlatAppearance.BorderSize = 0;
+            standButton.FlatStyle = FlatStyle.Flat;
+            standButton.Location = new Point(0, 0);
+            standButton.Name = "standButton";
+            standButton.Size = new Size(150, 150);
+            standButton.TabIndex = 9;
+            standButton.UseVisualStyleBackColor = false;
+            standButton.Click += standButton_Click;
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(64, 64, 64);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(standButton);
+            panel1.Controls.Add(hitButton);
             panel1.Location = new Point(1256, 632);
             panel1.Name = "panel1";
             panel1.Size = new Size(150, 300);
             panel1.TabIndex = 10;
             // 
-            // panel3
+            // dealerCardPanel
             // 
-            panel3.BackColor = Color.Black;
-            panel3.Controls.Add(dealerSlot6);
-            panel3.Controls.Add(dealerSlot5);
-            panel3.Controls.Add(dealerSlot4);
-            panel3.Controls.Add(dealerSlot3);
-            panel3.Controls.Add(dealerSlot2);
-            panel3.Controls.Add(dealerSlot1);
-            panel3.Location = new Point(12, 134);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(116, 804);
-            panel3.TabIndex = 11;
+            dealerCardPanel.BackColor = Color.Black;
+            dealerCardPanel.Controls.Add(dealerSlot6);
+            dealerCardPanel.Controls.Add(dealerSlot5);
+            dealerCardPanel.Controls.Add(dealerSlot4);
+            dealerCardPanel.Controls.Add(dealerSlot3);
+            dealerCardPanel.Controls.Add(dealerSlot2);
+            dealerCardPanel.Controls.Add(dealerSlot1);
+            dealerCardPanel.Location = new Point(12, 134);
+            dealerCardPanel.Name = "dealerCardPanel";
+            dealerCardPanel.Size = new Size(116, 804);
+            dealerCardPanel.TabIndex = 11;
             // 
             // dealerSlot6
             // 
@@ -287,24 +291,13 @@
             // 
             // popupPanel
             // 
-            popupPanel.BackColor = Color.DimGray;
+            popupPanel.BackColor = Color.FromArgb(34, 30, 23);
             popupPanel.Controls.Add(popupMessage);
             popupPanel.Controls.Add(playAgainButton);
             popupPanel.Location = new Point(424, 278);
             popupPanel.Name = "popupPanel";
             popupPanel.Size = new Size(570, 352);
             popupPanel.TabIndex = 12;
-            // 
-            // playAgainButton
-            // 
-            playAgainButton.BackColor = Color.SeaGreen;
-            playAgainButton.Font = new Font("Segoe UI", 15F);
-            playAgainButton.Location = new Point(96, 262);
-            playAgainButton.Name = "playAgainButton";
-            playAgainButton.Size = new Size(378, 71);
-            playAgainButton.TabIndex = 0;
-            playAgainButton.Text = "Play Again";
-            playAgainButton.UseVisualStyleBackColor = false;
             // 
             // popupMessage
             // 
@@ -318,16 +311,58 @@
             popupMessage.Text = "You Won!";
             popupMessage.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // playAgainButton
+            // 
+            playAgainButton.BackColor = Color.SeaGreen;
+            playAgainButton.Font = new Font("Segoe UI", 15F);
+            playAgainButton.Location = new Point(96, 262);
+            playAgainButton.Name = "playAgainButton";
+            playAgainButton.Size = new Size(378, 71);
+            playAgainButton.TabIndex = 0;
+            playAgainButton.Text = "Play Again";
+            playAgainButton.UseVisualStyleBackColor = false;
+            playAgainButton.Click += playAgainButton_Click;
+            // 
+            // returnButton
+            // 
+            returnButton.BackColor = Color.Black;
+            returnButton.FlatAppearance.BorderColor = Color.FromArgb(192, 0, 0);
+            returnButton.FlatAppearance.BorderSize = 3;
+            returnButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            returnButton.ForeColor = Color.FromArgb(192, 0, 0);
+            returnButton.Location = new Point(149, 837);
+            returnButton.Margin = new Padding(4, 5, 4, 5);
+            returnButton.Name = "returnButton";
+            returnButton.Size = new Size(244, 90);
+            returnButton.TabIndex = 13;
+            returnButton.Text = "Return To Menu";
+            returnButton.UseVisualStyleBackColor = false;
+            returnButton.Click += returnButton_Click;
+            // 
+            // totalLabel
+            // 
+            totalLabel.BackColor = Color.Transparent;
+            totalLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            totalLabel.ForeColor = Color.Silver;
+            totalLabel.Location = new Point(1010, 807);
+            totalLabel.Name = "totalLabel";
+            totalLabel.Size = new Size(144, 120);
+            totalLabel.TabIndex = 14;
+            totalLabel.Text = "Total: 0";
+            totalLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // BlackjackUI
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            BackgroundImage = Properties.Resources.blackjackBg;
+            BackgroundImage = Properties.Resources.cardGameBg;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1418, 944);
+            Controls.Add(totalLabel);
+            Controls.Add(returnButton);
             Controls.Add(popupPanel);
-            Controls.Add(panel3);
+            Controls.Add(dealerCardPanel);
             Controls.Add(panel1);
             Controls.Add(cardSlot6);
             Controls.Add(cardSlot5);
@@ -336,6 +371,7 @@
             Controls.Add(cardSlot1);
             Controls.Add(cardSlot3);
             Controls.Add(cardSlot2);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Margin = new Padding(4, 5, 4, 5);
             Name = "BlackjackUI";
             StartPosition = FormStartPosition.CenterScreen;
@@ -350,7 +386,7 @@
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cardSlot6).EndInit();
             panel1.ResumeLayout(false);
-            panel3.ResumeLayout(false);
+            dealerCardPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dealerSlot6).EndInit();
             ((System.ComponentModel.ISupportInitialize)dealerSlot5).EndInit();
             ((System.ComponentModel.ISupportInitialize)dealerSlot4).EndInit();
@@ -371,10 +407,10 @@
         private Panel panel2;
         private Label titleLabel;
         private PictureBox cardSlot6;
-        private Button button1;
-        private Button button2;
+        private Button hitButton;
+        private Button standButton;
         private Panel panel1;
-        private Panel panel3;
+        private Panel dealerCardPanel;
         private PictureBox dealerSlot6;
         private PictureBox dealerSlot5;
         private PictureBox dealerSlot4;
@@ -385,5 +421,7 @@
         private Panel popupPanel;
         private Button playAgainButton;
         private Label popupMessage;
+        private Button returnButton;
+        private Label totalLabel;
     }
 }

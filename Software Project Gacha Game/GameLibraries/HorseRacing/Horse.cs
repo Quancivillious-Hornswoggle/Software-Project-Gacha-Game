@@ -30,7 +30,7 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
 
         // In order to determine the winner/how far each horse has gone
         private int progress;
-        private int raceLength = 25;
+        private int raceLength = 15;
 
 
         /***

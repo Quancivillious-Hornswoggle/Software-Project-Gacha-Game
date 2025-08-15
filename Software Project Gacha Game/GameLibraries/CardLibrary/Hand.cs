@@ -1,4 +1,4 @@
-namespace Software_Project_Gacha_Game.GameLibraries.Blackjack
+namespace Software_Project_Gacha_Game.GameLibraries.CardLibrary
 {
 internal class Hand
 {
@@ -7,7 +7,7 @@ internal class Hand
 
     public Hand()
     {
-        hand = new Card[12]; // max possible cards in blackjack without busting
+        hand = new Card[6]; // max possible cards in blackjack without busting
         cardCount = 0;
     }
 
@@ -23,6 +23,13 @@ internal class Hand
         }
     }
 
+    public void RemoveCard(Card card)
+    {
+        List<Card> cards = new List<Card>();
+        cards.Remove(card);
+        cardCount -= cards.Count;
+    }
+
     public int GetHandValue()
     {
         int totalValue = 0;
@@ -30,7 +37,7 @@ internal class Hand
 
         for (int i = 0; i < cardCount; i++)
         {
-            string rank = hand[i].GetRank();
+            string rank = hand[i].getValue();
             if (rank == "A")
             {  //count as 11 initially 
                 totalValue += 11;
@@ -53,6 +60,11 @@ internal class Hand
         }
 
         return totalValue;
+    }
+
+    public Card[] GetCards()
+    {
+        return hand;
     }
 
     public void ClearHand()
