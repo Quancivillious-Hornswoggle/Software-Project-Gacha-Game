@@ -14,7 +14,7 @@ namespace Software_Project_Gacha_Game.GameLibraries.CardLibrary
         public Deck()
         {
             deck = new Card[52];
-            string[] suits = { "♠", "♥", "♦", "♣" };
+            string[] suits = { "S", "H", "D", "C" };
             string[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
 
             int index = 0;

@@ -7,7 +7,7 @@ internal class Hand
 
     public Hand()
     {
-        hand = new Card[12]; // max possible cards in blackjack without busting
+        hand = new Card[6]; // max possible cards in blackjack without busting
         cardCount = 0;
     }
 
