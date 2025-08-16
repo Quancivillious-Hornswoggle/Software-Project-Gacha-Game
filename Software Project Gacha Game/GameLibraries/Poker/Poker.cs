@@ -33,11 +33,21 @@ class Poker
     private Hand opponentHand;
     private Hand communityCards;
 
+    public Poker()
+    {
+        deck = new Deck();
+        playerHand = new Hand();
+        opponentHand = new Hand();
+        communityCards = new Hand();
+    }
+
 
     public void RunGame()
     {
         //TO DO: Add a universal point system. For now we will use these improvised points
-        int playerPoints = 100; // points should be available to the player at all times
+    int playerPoints = 100; // points should be available to the player at all times
+    // Example usage to avoid warning:
+    Console.WriteLine($"Player starts with {playerPoints} points.");
         deck = new Deck();
         playerHand = new Hand();
         opponentHand = new Hand();
