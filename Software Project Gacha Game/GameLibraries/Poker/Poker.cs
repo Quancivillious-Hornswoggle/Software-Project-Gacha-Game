@@ -51,9 +51,9 @@ class Poker
         }
 
         //Get the flop (First three community cards in the river)
-    communityCards.AddCard(deck.DealCard());
-    communityCards.AddCard(deck.DealCard());
-    communityCards.AddCard(deck.DealCard()); //TO DO: display the flop
+        communityCards.AddCard(deck.DealCard());
+        communityCards.AddCard(deck.DealCard());
+        communityCards.AddCard(deck.DealCard()); //TO DO: display the flop
 
         //Promt the user with a choice to raise, stand, or fold. Player will always go first.
 
@@ -105,6 +105,13 @@ class Poker
         }
 
         return pot;
+    }
+    
+    private enum PlayerChoices
+    {
+        Raise,
+        Call,
+        Fold
     }
 
 }
