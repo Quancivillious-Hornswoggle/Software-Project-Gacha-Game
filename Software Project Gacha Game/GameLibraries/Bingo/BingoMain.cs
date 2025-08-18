@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BingoGameApp;
+using System;
 
 namespace Com.Example
 {
     public class BingoMain
     {
-        public static void Main(string[] args)
+        public static void start()
         {
             BingoGame game = new BingoGame();
             game.GenerateCard();
