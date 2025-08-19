@@ -65,7 +65,7 @@ namespace Software_Project_Gacha_Game.Games
             // Set up horses
             horses = HorseRacing.setUpRace();
 
-            // Ods
+            // Odds
             odds1.Text = horses[0].getOdds().ToString();
             odds2.Text = horses[1].getOdds().ToString();
             odds3.Text = horses[2].getOdds().ToString();

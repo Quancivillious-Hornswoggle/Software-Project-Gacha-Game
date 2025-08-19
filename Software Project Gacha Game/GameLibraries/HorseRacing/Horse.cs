@@ -16,10 +16,10 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
         private readonly string[] lastNames = { "Merryment", "Realism", "Skybox", "Knob", "Bin", "Ship", "Wonder", "Endeavor" };
 
         // How many ms it takes for a horse to get the chance to move
-        // 1.0 - 1.5 seconds
+        // 2.0 - 2.5 seconds
         private int speed;
         private const int minSpeed = 2000;
-        private const int maxSpeed = 3500;
+        private const int maxSpeed = 2500;
 
         private float moveChance;
         private const float minMoveChance = 0.25f;
@@ -93,8 +93,12 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
             double c2 = (double)getSpeed() / maxSpeed;
             c1 = c1 * c2 * 100;
             c1 = Math.Floor(c1) - 5;
-            if (c1 <= 1) { c1 = 1; }
-            this.odds = (float)c1;
+            if (c1 <= 5) { c1 = 5; }
+            if (c1 >= 95) { c1 = 95; }
+            // TODO - determine if inverting percentage is right
+            // Used to be low -> more likely to win
+            // But it feels like it shouldn't work like this...?
+            this.odds = (float)(100f - c1);
         }
 
         private int getProgress()

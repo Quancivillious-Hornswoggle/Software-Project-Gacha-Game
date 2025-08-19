@@ -67,7 +67,7 @@ using System.Windows.Forms;
                 index = 0;
             }
             Debug.WriteLine(winner.getOdds());
-            if (winner.getName().Equals(betOnHorse)) { return (float)((1 - (winner.getOdds() / 100)) * betAmount); }
+            if (winner.getName().Equals(betOnHorse)) { return (float)Math.Round(((1 - (winner.getOdds() / 100)) * betAmount), 2); }
             return betAmount * -1;
             // Do they get nothing if they don't win? or less based on placement?
         }
