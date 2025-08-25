@@ -46,16 +46,13 @@ using System.Windows.Forms;
                     if ((timer.ElapsedMilliseconds % h.getSpeed() == 0) && h.movementOpportunity())
                     {
                     // Horse successfully moved
-                    // TODO - Somehow show movement on UI
                     HorseIcons[index].Location = new Point(HorseIcons[index].Location.X + 75, HorseIcons[index].Location.Y);
                     HorseIcons[index].Refresh();
 
-                    Debug.WriteLine(h.getName() + " Successfully moved!");
                     raceOver = h.hasWon();
                     if (raceOver)
                     {
                             winner = h;
-                            Debug.WriteLine(h.getName() + " has won!");
                             timer.Stop();
                             // Update corner winner label
                             winnerLabel.Text = (h.getName() + " has won!");
@@ -66,9 +63,10 @@ using System.Windows.Forms;
                 }
                 index = 0;
             }
-            Debug.WriteLine(winner.getOdds());
             if (winner.getName().Equals(betOnHorse)) { return (float)Math.Round(((1 - (winner.getOdds() / 100)) * betAmount), 2); }
             return betAmount * -1;
+            // TODO - If horses have the same name winning can happen when not intended
+            // Change to a Horse object instead & compare?
             // Do they get nothing if they don't win? or less based on placement?
         }
 
@@ -78,6 +76,5 @@ using System.Windows.Forms;
          * Timer keeps track of race time, if ms elapsed is a multiple of horse's speed, has a chance to move
          * Random double is generated, then compared to move chance
          * If random < chance, horse moves
-         * TBD how to track each horse's progress/who wins?
          */
     }
