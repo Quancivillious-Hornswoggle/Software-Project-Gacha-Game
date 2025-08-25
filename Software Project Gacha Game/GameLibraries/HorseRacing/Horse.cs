@@ -12,8 +12,8 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
     {
         private Random rand = new Random();
         private string name;
-        private readonly string[] firstNames = { "Jovial", "Superstitional", "Downtown", "Door", "Garbage", "Gold", "Grass", "Hopeless" };
-        private readonly string[] lastNames = { "Merryment", "Realism", "Skybox", "Knob", "Bin", "Ship", "Wonder", "Endeavor" };
+        private readonly string[] firstNames = { "Jovial", "Superstitional", "Downtown", "Door", "Garbage", "Gold", "Grass", "Hopeless", "Hatsune", "Kasane", "Freaky" };
+        private readonly string[] lastNames = { "Merryment", "Realism", "Skybox", "Knob", "Bin", "Ship", "Wonder", "Endeavor", "Miku", "Teto", "Bob" };
 
         // How many ms it takes for a horse to get the chance to move
         // 2.0 - 2.5 seconds
@@ -22,8 +22,8 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
         private const int maxSpeed = 2500;
 
         private float moveChance;
-        private const float minMoveChance = 0.25f;
-        private const float maxMoveChance = 0.50f;
+        private const float minMoveChance = 0.10f;
+        private const float maxMoveChance = 0.25f;
 
         // Purely UI related, can help user determine which horse to bet on
         private float odds;
@@ -89,16 +89,16 @@ namespace Software_Project_Gacha_Game.GameLibraries.HorseRacing
 
         private void setOdds()
         {
-            double c1 = getMoveChance() / maxMoveChance;
-            double c2 = (double)getSpeed() / maxSpeed;
-            c1 = c1 * c2 * 100;
-            c1 = Math.Floor(c1) - 5;
+            double c1 = (getMoveChance() - minMoveChance) / (maxMoveChance - minMoveChance);
+            double c2 = (double)(getSpeed() - minSpeed) / (maxSpeed - minSpeed);
+            c1 = (c1 + c2) * 50;
+            c1 = Math.Floor(c1);
             if (c1 <= 5) { c1 = 5; }
             if (c1 >= 95) { c1 = 95; }
             // TODO - determine if inverting percentage is right
             // Used to be low -> more likely to win
             // But it feels like it shouldn't work like this...?
-            this.odds = (float)(100f - c1);
+            this.odds = (float)(c1);
         }
 
         private int getProgress()
