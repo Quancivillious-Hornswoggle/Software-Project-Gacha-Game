@@ -90,17 +90,196 @@ class Poker
                 break;
         }
 
+        //opponent's turn 
+        PokerOpponent opponent = new PokerOpponent(opponentHand, communityCards);
+        switch (opponent.opponentChoice())
+        {
+            case PlayerChoices.Fold:
+                playerPoints += pot; // Player wins the pot
+                Console.WriteLine("Opponent folds.");
+                //display a winning message
+                break;
+            case PlayerChoices.Call:
+                Console.WriteLine("Opponent calls.");
+                pot += playerRaise;
+                break;
+            case PlayerChoices.Raise:
+                opponentRaise = pot / 2;
+                pot += opponentRaise;
+                //promt user to raise, call or fold
+                playerChoice = BetCallFold(pot);
+                switch (playerChoice)
+                {
+                    case PlayerChoices.Raise:
+                        playerRaise = Bet();
+                        pot += playerRaise*2; // opponent just calls
+
+                        break;
+                    case PlayerChoices.Call:
+                        if (Call(pot, opponentRaise) == -1)
+                        {
+                            pot += playerPoints;
+                            playerPoints = 0; // Player goes all in
+                            Console.WriteLine("Player goes all in!");
+                            break;
+                        }
+                        pot = Call(pot, opponentRaise);
+                        break;
+                    case PlayerChoices.Fold:
+                        opponentRaise = Fold();
+                        break;
+                }
+
+                break;
+        }
+
         //Get the flop (First three community cards in the river)
         communityCards.AddCard(deck.DealCard());
         communityCards.AddCard(deck.DealCard());
         communityCards.AddCard(deck.DealCard()); //TO DO: display the flop
+
+        playerChoice = BetCallFold(pot);
+        switch (playerChoice)
+        {
+            case PlayerChoices.Raise:
+                playerRaise = Bet();
+                pot += playerRaise;
+                break;
+            case PlayerChoices.Call:
+                if (Call(pot, opponentRaise) == -1)
+                {
+                    pot += playerPoints;
+                    playerPoints = 0; // Player goes all in
+                    Console.WriteLine("Player goes all in!");
+                    break;
+                }
+                pot = Call(pot, opponentRaise);
+
+                break;
+            case PlayerChoices.Fold:
+                opponentRaise = Fold();
+                break;
+        }
+
+        //opponent turn
+        opponent.SetCommunityCards(communityCards);
+        switch (opponent.opponentChoice())
+        {
+            case PlayerChoices.Fold:
+                playerPoints += pot; // Player wins the pot
+                Console.WriteLine("Opponent folds.");
+                //display a winning message
+                break;
+            case PlayerChoices.Call:
+                Console.WriteLine("Opponent calls.");
+                pot += playerRaise;
+                break;
+            case PlayerChoices.Raise:
+                opponentRaise = pot / 2;
+                pot += opponentRaise;
+                //promt user to raise, call or fold
+                playerChoice = BetCallFold(pot);
+                switch (playerChoice)
+                {
+                    case PlayerChoices.Raise:
+                        playerRaise = Bet();
+                        pot += playerRaise*2; // opponent just calls
+
+                        break;
+                    case PlayerChoices.Call:
+                        if (Call(pot, opponentRaise) == -1)
+                        {
+                            pot += playerPoints;
+                            playerPoints = 0; // Player goes all in
+                            Console.WriteLine("Player goes all in!");
+                            break;
+                        }
+                        pot = Call(pot, opponentRaise);
+                        break;
+                    case PlayerChoices.Fold:
+                        opponentRaise = Fold();
+                        break;
+                }
+
+                break;
+        }
+
+
+        communityCards.AddCard(deck.DealCard()); //The turn (4th community card)
+        communityCards.AddCard(deck.DealCard()); //The river (5th community card)
+
+
 
         // Show hands and community cards
         Console.WriteLine("Player Hand: " + playerHand.GetCards());
         Console.WriteLine("Opponent Hand: " + opponentHand.GetCards());
         Console.WriteLine("Community Cards: " + communityCards.GetCards());
 
+        playerChoice = BetCallFold(pot);
+        switch (playerChoice)
+        {
+            case PlayerChoices.Raise:
+                playerRaise = Bet();
+                pot += playerRaise;
+                break;
+            case PlayerChoices.Call:
+                if (Call(pot, opponentRaise) == -1)
+                {
+                    pot += playerPoints;
+                    playerPoints = 0; // Player goes all in
+                    Console.WriteLine("Player goes all in!");
+                    break;
+                }
+                pot = Call(pot, opponentRaise);
 
+                break;
+            case PlayerChoices.Fold:
+                opponentRaise = Fold();
+                break;
+        }
+
+        //opponent
+
+        switch (opponent.opponentChoice())
+        {
+            case PlayerChoices.Fold:
+                playerPoints += pot; // Player wins the pot
+                Console.WriteLine("Opponent folds.");
+                //display a winning message
+                break;
+            case PlayerChoices.Call:
+                Console.WriteLine("Opponent calls.");
+                pot += playerRaise;
+                break;
+            case PlayerChoices.Raise:
+                opponentRaise = pot / 2;
+                pot += opponentRaise;
+                //promt user to raise, call or fold
+                playerChoice = BetCallFold(pot);
+                switch (playerChoice)
+                {
+                    case PlayerChoices.Raise:
+                        playerRaise = Bet();
+                        pot += playerRaise*2; // opponent just calls
+
+                        break;
+                    case PlayerChoices.Call:
+                        if (Call(pot, opponentRaise) == -1)
+                        {
+                            pot += playerPoints;
+                            playerPoints = 0; // Player goes all in
+                            Console.WriteLine("Player goes all in!");
+                            break;
+                        }
+                        pot = Call(pot, opponentRaise);
+                        break;
+                    case PlayerChoices.Fold:
+                        opponentRaise = Fold();
+                        break;
+                }
+
+                break;
+        }
 
         // Determine winner
         SolveWinner solver = new SolveWinner();
@@ -171,7 +350,7 @@ class Poker
         return 0;
     }
     
-    private enum PlayerChoices
+    public enum PlayerChoices
     {
         Raise,
         Call,
