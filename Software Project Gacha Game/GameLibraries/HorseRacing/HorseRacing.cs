@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
     class HorseRacing
     {
-    public static String betOnHorse = "";
+    public static Horse? betOnHorse;
     public static float betAmount;
 
     public static List<Horse> horses = new List<Horse>();
@@ -25,9 +25,9 @@ using System.Windows.Forms;
             return horses;
         }
 
-        public static void makeBet(String horseName, float wager)
+        public static void makeBet(Horse horse, float wager)
         {
-            betOnHorse = horseName;
+            betOnHorse = horse;
             betAmount = wager;
         }
 
@@ -63,10 +63,8 @@ using System.Windows.Forms;
                 }
                 index = 0;
             }
-            if (winner.getName().Equals(betOnHorse)) { return (float)Math.Round(((1 - (winner.getOdds() / 100)) * betAmount), 2); }
+            if (winner == betOnHorse) { return (float)Math.Round(((1 - (winner.getOdds() / 100)) * betAmount), 2); }
             return betAmount * -1;
-            // TODO - If horses have the same name winning can happen when not intended
-            // Change to a Horse object instead & compare?
             // Do they get nothing if they don't win? or less based on placement?
         }
 

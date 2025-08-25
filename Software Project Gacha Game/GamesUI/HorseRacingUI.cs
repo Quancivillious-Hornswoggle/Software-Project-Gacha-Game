@@ -95,7 +95,7 @@ namespace Software_Project_Gacha_Game.Games
         #region Bet Buttons
         private void button1_Click(object sender, EventArgs e)
         {
-            HorseRacing.makeBet(horses[0].getName(), float.Parse(betAmount.Text));
+            HorseRacing.makeBet(horses[0], float.Parse(betAmount.Text));
             DisableBetButtons();
             float winnings = HorseRacing.startRace(horseIcons, winnerLabel);
             ShowPayout(winnings);
@@ -103,7 +103,7 @@ namespace Software_Project_Gacha_Game.Games
 
         private void button2_Click(object sender, EventArgs e)
         {
-            HorseRacing.makeBet(horses[1].getName(), float.Parse(betAmount.Text));
+            HorseRacing.makeBet(horses[1], float.Parse(betAmount.Text));
             DisableBetButtons();
             float winnings = HorseRacing.startRace(horseIcons, winnerLabel);
             ShowPayout(winnings);
@@ -111,7 +111,7 @@ namespace Software_Project_Gacha_Game.Games
 
         private void button4_Click(object sender, EventArgs e)
         {
-            HorseRacing.makeBet(horses[2].getName(), float.Parse(betAmount.Text));
+            HorseRacing.makeBet(horses[2], float.Parse(betAmount.Text));
             DisableBetButtons();
             float winnings = HorseRacing.startRace(horseIcons, winnerLabel);
             ShowPayout(winnings);
@@ -119,7 +119,7 @@ namespace Software_Project_Gacha_Game.Games
 
         private void button3_Click(object sender, EventArgs e)
         {
-            HorseRacing.makeBet(horses[3].getName(), float.Parse(betAmount.Text));
+            HorseRacing.makeBet(horses[3], float.Parse(betAmount.Text));
             DisableBetButtons();
             float winnings = HorseRacing.startRace(horseIcons, winnerLabel);
             ShowPayout(winnings);
@@ -127,7 +127,7 @@ namespace Software_Project_Gacha_Game.Games
 
         private void button5_Click(object sender, EventArgs e)
         {
-            HorseRacing.makeBet(horses[4].getName(), float.Parse(betAmount.Text));
+            HorseRacing.makeBet(horses[4], float.Parse(betAmount.Text));
             DisableBetButtons();
             float winnings = HorseRacing.startRace(horseIcons, winnerLabel);
             ShowPayout(winnings);
