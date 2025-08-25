@@ -157,7 +157,8 @@ namespace Software_Project_Gacha_Game.Games
 
         private void ShowPayout(float winnings)
         {
-            payoutLabel.Text = $"${winnings}";
+            label3.Text = (winnings < 0) ? "You Lost:" : "You Won:";
+            payoutLabel.Text = (winnings < 0) ? $"${winnings.ToString().Substring(1)}" : $"${winnings}";
             payoutPanel.Visible = true;
             BetAgainButton.Visible = true;
         }
@@ -243,6 +244,11 @@ namespace Software_Project_Gacha_Game.Games
             horse3.Location = horsePoints[2];
             horse4.Location = horsePoints[3];
             horse5.Location = horsePoints[4];
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
