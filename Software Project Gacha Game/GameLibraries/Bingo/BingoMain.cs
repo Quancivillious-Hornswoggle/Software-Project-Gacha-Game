@@ -1,30 +1,15 @@
 ﻿using BingoGameApp;
 using System;
 
-namespace Com.Example
+namespace Software_Project_Gacha_Game.Games
 {
-    public class BingoMain
+    public static class BingoMain
     {
-        public static void start()
+        public static void start(Form1 menuForm)
         {
-            BingoGame game = new BingoGame();
-            game.GenerateCard();
-            game.StartGame();
-
-            for (int i = 0; i < 50 && game.IsGameActive(); i++)
-            {
-                var result = game.CallNumber();
-                if (result != null)
-                {
-                    Console.WriteLine("Called: " + result.GetFormattedNumber() +
-                        (result.FoundOnCard ? " (on card)" : " (not on card)"));
-                    if (result.Won)
-                    {
-                        Console.WriteLine("BINGO!");
-                        break;
-                    }
-                }
-            }
+            BingoUI bingoForm = new BingoUI(menuForm);
+            menuForm.Visible = false;
+            bingoForm.Show();
         }
     }
 }
