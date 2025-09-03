@@ -41,6 +41,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bingo";
             FormClosing += BingoUI_FormClosing;
+            Load += BingoUI_Load;
             ResumeLayout(false);
         }
 

@@ -79,7 +79,7 @@ namespace Software_Project_Gacha_Game.Games
             newGameButton.Click += NewGameButton_Click;
             this.Controls.Add(newGameButton);
 
-            
+
             Button returnButton = new Button
             {
                 Text = "Return To Menu",
@@ -154,6 +154,11 @@ namespace Software_Project_Gacha_Game.Games
         private void BingoUI_FormClosing(object sender, FormClosingEventArgs e)
         {
             menuForm.Visible = true;
+        }
+
+        private void BingoUI_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
