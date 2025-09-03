@@ -51,9 +51,9 @@ namespace Software_Project_Gacha_Game.Games
             // make number list box
             calledNumbersList = new ListBox
             {
-                Size = new Size(150, 400),
+                Size = new Size(300, 400),
                 Location = new Point(450, 20),
-                Font = new Font("Arial", 10)
+                Font = new Font("Arial", 18),
             };
             this.Controls.Add(calledNumbersList);
 
@@ -61,9 +61,9 @@ namespace Software_Project_Gacha_Game.Games
             callNumberButton = new Button
             {
                 Text = "Call Number",
-                Size = new Size(120, 40),
-                Location = new Point(450, 440),
-                Font = new Font("Arial", 10)
+                Size = new Size(420, 75),
+                Location = new Point(20, 440),
+                Font = new Font("Arial", 15)
             };
             callNumberButton.Click += CallNumberButton_Click;
             this.Controls.Add(callNumberButton);
@@ -72,8 +72,8 @@ namespace Software_Project_Gacha_Game.Games
             newGameButton = new Button
             {
                 Text = "New Game",
-                Size = new Size(120, 40),
-                Location = new Point(580, 440),
+                Size = new Size(300, 50),
+                Location = new Point(450, 400),
                 Font = new Font("Arial", 10)
             };
             newGameButton.Click += NewGameButton_Click;
@@ -83,9 +83,9 @@ namespace Software_Project_Gacha_Game.Games
             Button returnButton = new Button
             {
                 Text = "Return To Menu",
-                Size = new Size(120, 40),
-                Location = new Point(710, 440),
-                Font = new Font("Arial", 10),
+                Size = new Size(300, 50),
+                Location = new Point(450, 465),
+                Font = new Font("Arial", 15),
                 BackColor = Color.Black,
                 ForeColor = Color.Red
             };

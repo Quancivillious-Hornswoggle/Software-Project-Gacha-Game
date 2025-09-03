@@ -13,12 +13,31 @@ class Blackjack
     private Hand dealerHand;
     private bool gameActive;
 
+    //money money
+    public static float playerBalance = 1000f;
+    public static float betAmount;
+
     public Blackjack()
     {
         deck = new Deck();
         playerHand = new Hand();
         dealerHand = new Hand();
     }
+
+    public static void PlaceBet(float wager)
+    {
+        if (wager <= 0) throw new ArgumentException("Bet must be positive.");
+        if (wager >playerBalance) throw new ArgumentException("Not enough funds to place this bet.");
+    
+    betAmount = wager;
+    playerBalance -= wager;
+    }
+
+    public static float GetBalance()
+    {
+        return playerBalance;
+    }
+
 
     public void DealInitialCards()
     {
@@ -44,7 +63,6 @@ class Blackjack
         if (gameActive)
         {
             playerHand.AddCard(deck.DealCard());
-
             if (playerHand.GetHandValue() > 21)
             {
                 Console.WriteLine("Player busts! Dealer wins!");
