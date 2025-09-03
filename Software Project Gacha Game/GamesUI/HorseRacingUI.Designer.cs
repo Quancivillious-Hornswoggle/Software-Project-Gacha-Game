@@ -69,6 +69,7 @@
             decreaseButton = new Button();
             winnerLabel = new Label();
             title = new Label();
+            label4 = new Label();
             panel1.SuspendLayout();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)horse5).BeginInit();
@@ -391,6 +392,7 @@
             // panel8
             // 
             panel8.BackColor = Color.White;
+            panel8.BackgroundImage = Properties.Resources.FinishLine;
             panel8.Location = new Point(1315, 3);
             panel8.Name = "panel8";
             panel8.Size = new Size(53, 750);
@@ -576,6 +578,19 @@
             title.Text = "Horse Racing";
             title.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // label4
+            // 
+            label4.BackColor = Color.Transparent;
+            label4.FlatStyle = FlatStyle.Flat;
+            label4.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ButtonFace;
+            label4.Location = new Point(146, 126);
+            label4.Name = "label4";
+            label4.Size = new Size(150, 38);
+            label4.TabIndex = 6;
+            label4.Text = "Odds";
+            label4.Click += label4_Click;
+            // 
             // HorseRacingUI
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -583,6 +598,7 @@
             BackgroundImage = Properties.Resources.horseracingBg;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1598, 1024);
+            Controls.Add(label4);
             Controls.Add(title);
             Controls.Add(winnerLabel);
             Controls.Add(panel9);
@@ -655,5 +671,6 @@
         private Button BetAgainButton;
         private Label payoutLabel;
         private Label label3;
+        private Label label4;
     }
 }

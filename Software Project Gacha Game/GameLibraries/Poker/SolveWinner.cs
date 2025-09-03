@@ -1,61 +1,367 @@
+using Software_Project_Gacha_Game.GameLibraries.CardLibrary;
+
 namespace GameLibraries.Poker
 {
     public class SolveWinner
     {
-        public String DetermineWinner(Hand communityCards, Hand playerHand, Hand opponentHand)
+        internal static String DetermineWinner(Hand communityCards, Hand playerHand, Hand opponentHand)
         {
-            List<Card> playerCards = new List<Card>(playerHand.GetCards());
-            playerCards.AddRange(communityCards.GetCards());
-            List<Card> opponentCards = new List<Card>(opponentHand.GetCards());
-            opponentCards.AddRange(communityCards.GetCards());
+            Card[] playerCards = new Card[playerHand.GetCards().Length + communityCards.GetCards().Length];
+            Array.Copy(playerHand.GetCards(), playerCards, playerHand.GetCards().Length);
+            Array.Copy(communityCards.GetCards(), 0, playerCards, playerHand.GetCards().Length, communityCards.GetCards().Length);
 
-            // Compare hands and determine the winner
-            if (playerCards.Count > opponentCards.Count)
+            Card[] opponentCards = new Card[opponentHand.GetCards().Length + communityCards.GetCards().Length];
+            Array.Copy(opponentHand.GetCards(), opponentCards, opponentHand.GetCards().Length);
+            Array.Copy(communityCards.GetCards(), 0, opponentCards, opponentHand.GetCards().Length, communityCards.GetCards().Length);
+
+            /*Lets Start the Hiarchy
+            1. Royal Flush
+            2. Straight Flush
+            3. Four of a Kind
+            4. Full House
+            5. Flush
+            6. Straight
+            7. Three of a Kind
+            8. Two Pair
+            9. One Pair
+            10. High Card
+            */
+            if (IsStraightFlush(playerCards) && IsStraightFlush(opponentCards)) 
+            {// I hope to come back to this to make it more efficient, but it should work for now
+                if (getHighestValue(playerCards) > getHighestValue(opponentCards))
+                {
+                    return "Player wins";
+                }
+                else if (getHighestValue(playerCards) < getHighestValue(opponentCards))
+                {
+                    return "Opponent wins";
+                }
+            } else if (IsStraightFlush(playerCards))
             {
                 return "Player wins";
             }
-            else if (playerCards.Count < opponentCards.Count)
+            else if (IsStraightFlush(opponentCards))
             {
                 return "Opponent wins";
             }
+            if (IsFourOfAKind(playerCards) && IsFourOfAKind(opponentCards))
+            {
+                if (getHighestValue(playerCards) > getHighestValue(opponentCards))
+                {
+                    return "Player wins";
+                }
+                else if (getHighestValue(playerCards) < getHighestValue(opponentCards))
+                {
+                    return "Opponent wins";
+                }
+            } else if (IsFourOfAKind(playerCards))
+            {
+                return "Player wins";
+            }
+            else if (IsFourOfAKind(opponentCards))
+            {
+                return "Opponent wins";
+            }// Ok theres gotta be a better way to handle this... but... for time sake i'll come back to this
+            if (IsFullHouse(playerCards) && IsFullHouse(opponentCards))
+            {
+                if (getHighestValue(playerCards) > getHighestValue(opponentCards))
+                {
+                    return "Player wins";
+                }
+                else if (getHighestValue(playerCards) < getHighestValue(opponentCards))
+                {
+                    return "Opponent wins";
+                }
+            }
+            else if (IsFullHouse(playerCards))
+            {
+                return "Player wins";
+            }
+            else if (IsFullHouse(opponentCards))
+            {
+                return "Opponent wins";
+            }
+            if (IsFlush(playerCards) && IsFlush(opponentCards))
+            {
+                if (getHighestValue(playerCards) > getHighestValue(opponentCards))
+                {
+                    return "Player wins";
+                }
+                else if (getHighestValue(playerCards) < getHighestValue(opponentCards))
+                {
+                    return "Opponent wins";
+                }
+            }
+            else if (IsFlush(playerCards))
+            {
+                return "Player wins";
+            }
+            else if (IsFlush(opponentCards))
+            {
+                return "Opponent wins";
+            }
+            if (IsStraight(playerCards) && IsStraight(opponentCards))
+            {
+                if (getHighestValue(playerCards) > getHighestValue(opponentCards))
+                {
+                    return "Player wins";
+                }
+                else if (getHighestValue(playerCards) < getHighestValue(opponentCards))
+                {
+                    return "Opponent wins";
+                }
+            }else if (IsStraight(playerCards))
+            {
+                return "Player wins";
+            }
+            else if (IsStraight(opponentCards))
+            {
+                return "Opponent wins";
+            }
+            if (IsThreeOfAKind(playerCards) && IsThreeOfAKind(opponentCards))
+            {
+                if (getHighestValue(playerCards) > getHighestValue(opponentCards))
+                {
+                    return "Player wins";
+                }
+                else if (getHighestValue(playerCards) < getHighestValue(opponentCards))
+                {
+                    return "Opponent wins";
+                }
+            }
+            else if (IsThreeOfAKind(playerCards))
+            {
+                return "Player wins";
+            }
+            else if (IsThreeOfAKind(opponentCards))
+            {
+                return "Opponent wins";
+            }
+            if (IsTwoPair(playerCards) && IsTwoPair(opponentCards))
+            {
+                if (getHighestValue(playerCards) > getHighestValue(opponentCards))
+                {
+                    return "Player wins";
+                }
+                else if (getHighestValue(playerCards) < getHighestValue(opponentCards))
+                {
+                    return "Opponent wins";
+                }
+            }
+            else if (IsTwoPair(playerCards))
+            {
+                return "Player wins";
+            }
+            else if (IsTwoPair(opponentCards))
+            {
+                return "Opponent wins";
+            }
+            if (IsOnePair(playerCards) && IsOnePair(opponentCards))
+            {
+                if (getHighestValue(playerCards) > getHighestValue(opponentCards))
+                {
+                    return "Player wins";
+                }
+                else if (getHighestValue(playerCards) < getHighestValue(opponentCards))
+                {
+                    return "Opponent wins";
+                }
+            }
+            else if (IsOnePair(playerCards))
+            {
+                return "Player wins";
+            }
+            else if (IsOnePair(opponentCards))
+            {
+                return "Opponent wins";
+            }
+            if (getHighestValue(playerCards) != getHighestValue(opponentCards))
+            {
+                return getHighestValue(playerCards) > getHighestValue(opponentCards) ? "Player wins" : "Opponent wins";
+            }
+
             return "Draw";
         }
 
-
-        public bool IsFlush(List<Card> cards)
+        private static bool IsStraightFlush(Card[] cards)
         {
-            if (cards.Count == 0) return false;
-
-            string suit = cards[0].Suit;
-            foreach (var card in cards)
+            Card[] fiveCardHand = new Card[5]; //since the player can work with any 5 cards we must exclude the others in the river
+            int startIndex = straightStartIndex(cards);
+            if (startIndex != -1)
             {
-                if (card.Suit != suit) return false;
+                Array.Copy(cards, startIndex, fiveCardHand, 0, 5);
             }
-            return true;
+            if (IsFlush(fiveCardHand) && IsStraight(fiveCardHand)) // make sure that the straight is ALSO a flush
+            {
+                return true;
+            }
+
+            /*
+            * NOTE: IsStraightFlush() && IsFlush() does not work on the complete hand since something like
+            * 5♠ 6♠ 7♠ 8♠ 9♠ (straight flush) is not recognized if the player has 2♣ 3♣ in hand.
+            */
+
+            return false;
         }
 
-        public bool IsStraight(List<Card> cards)
+        private static bool IsFourOfAKind(Card[] cards)
         {
-            if (cards.Count == 0) return false;
-
-            cards.Sort((a, b) => a.Value.CompareTo(b.Value));
-
-            for (int i = 1; i < cards.Count; i++)
+            int[] valueCounts = new int[15]; // 2-14 (Ace)
+            int[] cardValues = getCardValues(cards);
+            foreach (var value in cardValues)
             {
-                if (i == 0 && cards[i].Value == 1 && cards[i - 1].Value == 10)
+                valueCounts[value]++;
+            }
+            return valueCounts.Contains(4);
+        }
+
+        private static bool IsFullHouse(Card[] cards)
+        {
+            return IsThreeOfAKind(cards) && IsOnePair(cards);
+        }
+        private static bool IsThreeOfAKind(Card[] cards)
+        {
+            int[] valueCounts = new int[15]; // 2-14 (Ace)
+            int[] cardValues = getCardValues(cards);
+            foreach (var value in cardValues)
+            {
+                valueCounts[value]++;
+            }
+            return valueCounts.Contains(3);
+        }
+
+        private static bool IsTwoPair(Card[] cards)
+        {
+            return CountPairs(cards) == 2;
+        }
+
+        private static bool IsOnePair(Card[] cards)
+        {
+            int[] valueCounts = new int[15]; // 2-14 (Ace)
+            int[] cardValues = getCardValues(cards);
+            foreach (var value in cardValues)
+            {
+                valueCounts[value]++;
+            }
+            return valueCounts.Contains(2);
+        }
+
+        private static int CountPairs(Card[] cards)
+        {
+            int[] valueCounts = new int[15]; // 2-14 (Ace)
+            int[] cardValues = getCardValues(cards);
+            foreach (var value in cardValues)
+            {
+                valueCounts[value]++;
+            }
+            return valueCounts.Count(x => x == 2);
+        }
+
+        private static bool IsFlush(Card[] cards)//"♠", "♥", "♦", "♣"
+        {
+            int heartValue = 0;
+            int diamondValue = 0;
+            int clubValue = 0;
+            int spadeValue = 0;
+
+            if (cards.Length == 0) return false;
+            foreach (var card in cards)
+            {
+                if (card.getSuit() == "♠") heartValue++;
+                else if (card.getSuit() == "♥") diamondValue++;
+                else if (card.getSuit() == "♦") clubValue++;
+                else if (card.getSuit() == "♣") spadeValue++;
+            }
+            if (heartValue >= 5 || diamondValue >= 5 || clubValue >= 5 || spadeValue >= 5)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
+        private static bool IsStraight(Card[] cards)
+        {
+            if (cards.Length == 0) return false;
+
+            int[] cardValues = getCardValues(cards);
+            int straightCount = 1;
+
+            for (int i = 0; i < cardValues.Length; i++)
+            {
+                if (cardValues[i] == 2 && cardValues[cardValues.Length - 1] == 14)
                 {
-                    // Check for the special case of Ace-low straight
-                    if (cards[i].Value != cards[i - 1].Value + 1)
-                    {
-                        return false;
-                    }
+                    straightCount++;
                 }
-                else if (cards[i].Value != cards[i - 1].Value + 1)
+                if (i > 0 && cardValues[i] == cardValues[i - 1] + 1)
                 {
-                    return false;
+                    straightCount++;
+                }
+                if (straightCount >= 5)
+                {
+                    return true;
+                }
+                else
+                {
+                    straightCount = 1;
                 }
             }
-            return true;
+            return false;
+        }
+
+        private static int straightStartIndex(Card[] cards)
+        {
+            for (int i = 0; i < cards.Length - 4; i++)
+            {
+                if (IsStraight(new Card[] { cards[i], cards[i + 1], cards[i + 2], cards[i + 3], cards[i + 4] }))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        private static int getHighestValue(Card[] cards)
+        {
+            return getCardValues(cards).Max();
+        }
+        
+        private static int[] getCardValues(Card[] cards)
+        {
+            Array.Sort(cards, (a, b) => a.getValue().CompareTo(b.getValue()));
+            int[] cardValues = new int[cards.Length];
+            for (int i = 0; i < cards.Length; i++)
+            {
+                try
+                {
+                    cardValues[i] = int.Parse(cards[i].getValue());
+                }
+                catch
+                {
+                    if (cards[i].getValue() == "A")
+                    {
+                        cardValues[i] = 14; // Ace high
+                    }
+                    else if (cards[i].getValue() == "K")
+                    {
+                        cardValues[i] = 13; // King high
+                    }
+                    else if (cards[i].getValue() == "Q")
+                    {
+                        cardValues[i] = 12; // Queen high
+                    }
+                    else if (cards[i].getValue() == "J")
+                    {
+                        cardValues[i] = 11; // Jack high
+                    }
+                    else
+                    {
+                        cardValues[i] = 0;
+                    }
+                }
+            }
+            return cardValues;
         }
     }
 }

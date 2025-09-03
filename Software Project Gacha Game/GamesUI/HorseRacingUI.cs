@@ -65,7 +65,7 @@ namespace Software_Project_Gacha_Game.Games
             // Set up horses
             horses = HorseRacing.setUpRace();
 
-            // Ods
+            // Odds
             odds1.Text = horses[0].getOdds().ToString();
             odds2.Text = horses[1].getOdds().ToString();
             odds3.Text = horses[2].getOdds().ToString();
@@ -95,7 +95,7 @@ namespace Software_Project_Gacha_Game.Games
         #region Bet Buttons
         private void button1_Click(object sender, EventArgs e)
         {
-            HorseRacing.makeBet(horses[0].getName(), float.Parse(betAmount.Text));
+            HorseRacing.makeBet(horses[0], float.Parse(betAmount.Text));
             DisableBetButtons();
             float winnings = HorseRacing.startRace(horseIcons, winnerLabel);
             ShowPayout(winnings);
@@ -103,7 +103,7 @@ namespace Software_Project_Gacha_Game.Games
 
         private void button2_Click(object sender, EventArgs e)
         {
-            HorseRacing.makeBet(horses[1].getName(), float.Parse(betAmount.Text));
+            HorseRacing.makeBet(horses[1], float.Parse(betAmount.Text));
             DisableBetButtons();
             float winnings = HorseRacing.startRace(horseIcons, winnerLabel);
             ShowPayout(winnings);
@@ -111,7 +111,7 @@ namespace Software_Project_Gacha_Game.Games
 
         private void button4_Click(object sender, EventArgs e)
         {
-            HorseRacing.makeBet(horses[2].getName(), float.Parse(betAmount.Text));
+            HorseRacing.makeBet(horses[2], float.Parse(betAmount.Text));
             DisableBetButtons();
             float winnings = HorseRacing.startRace(horseIcons, winnerLabel);
             ShowPayout(winnings);
@@ -119,7 +119,7 @@ namespace Software_Project_Gacha_Game.Games
 
         private void button3_Click(object sender, EventArgs e)
         {
-            HorseRacing.makeBet(horses[3].getName(), float.Parse(betAmount.Text));
+            HorseRacing.makeBet(horses[3], float.Parse(betAmount.Text));
             DisableBetButtons();
             float winnings = HorseRacing.startRace(horseIcons, winnerLabel);
             ShowPayout(winnings);
@@ -127,7 +127,7 @@ namespace Software_Project_Gacha_Game.Games
 
         private void button5_Click(object sender, EventArgs e)
         {
-            HorseRacing.makeBet(horses[4].getName(), float.Parse(betAmount.Text));
+            HorseRacing.makeBet(horses[4], float.Parse(betAmount.Text));
             DisableBetButtons();
             float winnings = HorseRacing.startRace(horseIcons, winnerLabel);
             ShowPayout(winnings);
@@ -157,7 +157,8 @@ namespace Software_Project_Gacha_Game.Games
 
         private void ShowPayout(float winnings)
         {
-            payoutLabel.Text = $"${winnings}";
+            label3.Text = (winnings < 0) ? "You Lost:" : "You Won:";
+            payoutLabel.Text = (winnings < 0) ? $"${winnings.ToString().Substring(1)}" : $"${winnings}";
             payoutPanel.Visible = true;
             BetAgainButton.Visible = true;
         }
@@ -243,6 +244,11 @@ namespace Software_Project_Gacha_Game.Games
             horse3.Location = horsePoints[2];
             horse4.Location = horsePoints[3];
             horse5.Location = horsePoints[4];
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
