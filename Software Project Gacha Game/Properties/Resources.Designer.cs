@@ -63,6 +63,16 @@ namespace Software_Project_Gacha_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap bingoBg {
+            get {
+                object obj = ResourceManager.GetObject("bingoBg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap blackjackBg {
             get {
                 object obj = ResourceManager.GetObject("blackjackBg", resourceCulture);

@@ -34,7 +34,9 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1598, 944);
+            BackgroundImage = Properties.Resources.bingoBg;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(778, 544);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Margin = new Padding(4, 5, 4, 5);
             Name = "BingoUI";
