@@ -73,8 +73,8 @@ namespace Software_Project_Gacha_Game.Games
             bool bust = blackjack.PlayerHits();
             UpdateUI(blackjack.GetPlayerHand(), blackjack.GetDealerHand());
             if (bust)
-            {
-                popupMessage.Text = "You Busted!";
+            { 
+                popupMessage.Text = "You Busted!"; //he he he he
                 popupPanel.Show();
             }
         }
